@@ -1,12 +1,24 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    color: var(--red);
+    font-weight: bold;
+  }
+`;
 
 export const StyledSpinner = styled.div`
-  border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid #16d47b; /* Blue */
+  border: 3px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid var(--red); /* Blue */
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 0.8s linear infinite;
+  width: 60px;
+  height: 60px;
+  animation: spin 0.6s linear infinite;
   margin: 20px auto;
 
   @keyframes spin {

@@ -1,52 +1,57 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const StyledSearchBar = styled.div`
+export const FormSearchMovies = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15vh;
+  margin: auto;
   width: 100%;
-  height: 105px;
-  background: #1c1c1c;
-  padding: 25px 20px 0px 20px;
-  box-sizing: border-box;
-  color: #fff;
-`;
+  background-color: #000;
 
-export const StyledSearchBarContent = styled.div`
-  max-width: 1280px;
-  width: 100%;
-  height: 55px;
-  background: #353535;
-  margin: 0 auto;
-  border-radius: 40px;
-  position: relative;
-  color: #fff;
-
-  .fa-search {
-    position: absolute;
-    left: 20px;
-    top: 12px;
-    color: #fff;
-    z-index: 1000;
+  div {
+    position: relative;
+    display: flex;
+    width: 40%;
+    min-width: 330px;
   }
 
   input {
-    font-family: 'Abel', sans-serif;
-    font-size: 28px;
+    border: none;
+    outline: none;
+    border: 2px solid var(--light);
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: transparent;
+    color: var(--light);
+
+    &:focus {
+      border: 2px solid var(--red);
+    }
+
+    &::placeholder {
+      color: var(--light);
+      font-style: italic;
+    }
+  }
+  .material-icons {
     position: absolute;
-    left: 0px;
-    margin: 8px 0;
-    padding: 0 0 0 60px;
-    border: 0;
-    width: 95%;
-    background: transparent;
-    height: 40px;
-    color: #fff;
-    box-sizing: border-box;
+    color: var(--gray);
+    right: 13px;
+    top: 10px;
+  }
 
-    :focus {
-      outline: none;
-    }
+  @media (max-width: 970px) {
+    top: 15%;
+  }
 
-    @media screen and (max-width: 720px) {
-      font-size: 28px;
-    }
+  @media (max-width: 670px) {
+    bottom: 55%;
+    max-height: 10vh;
+  }
+
+  @media (max-width: 470px) {
+    top: 0;
   }
 `;

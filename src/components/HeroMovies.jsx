@@ -1,34 +1,50 @@
 import React from "react";
-import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import no_image from "../assets/images/no_image.jpg";
 
-import { apiConfig } from "../utils/config";
+import { banner, poster, imageBaseURL } from "../utils/config";
+import SpinnerMovies from "./SpinnerMovies";
 
-const HeroMovies = ({ movies }) => {
+const HeroMovies = ({ playingMovies, playingLoading, playingError }) => {
+  console.log(playingMovies);
   return (
-    <div>
-      <Swiper
-        modules={[Autoplay, Pagination, Navigation, EffectFade]}
-        autoplay={{ delay: 3500 }}
-        loop={true}
-        speed={1000}
-        grabCursor={true}
-        spaceBetween={0}
-        slidesPerView={1}
-        effect={"fade"}
-      >
-        {movies.movies?.map((item, i) => (
-          <SwiperSlide key={i}>
-            <HeroSlideItem item={item} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="fade-in">
+      {playingError && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h2>Algo de errado aconteceu!</h2>
+        </div>
+      )}
+      {!playingMovies ? (
+        <SpinnerMovies />
+      ) : (
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation, EffectFade]}
+          autoplay={{ delay: 5000 }}
+          loop={true}
+          speed={3000}
+          grabCursor={true}
+          spaceBetween={0}
+          slidesPerView={1}
+          effect={"fade"}
+        >
+          {playingMovies.playingMovies?.map((item, i) => (
+            <SwiperSlide key={i}>
+              <HeroSlideItem item={item} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 };
@@ -36,14 +52,12 @@ const HeroMovies = ({ movies }) => {
 const HeroSlideItem = (props) => {
   const item = props.item;
 
-  const background = apiConfig.originalImg(
-    item.backdrop_path ? item.backdrop_path : item.poster_path
-  );
-
   return (
     <div
       className="hero-slide"
-      style={{ backgroundImage: `url(${background})` }}
+      style={{
+        backgroundImage: `url(${imageBaseURL}${banner}${item.backdrop_path})`,
+      }}
     >
       <div className="hero-slide__item">
         <div className="hero-slide__item--content">
@@ -53,7 +67,7 @@ const HeroSlideItem = (props) => {
           </div>
           <img
             className="hero-slide__item-img"
-            src={apiConfig.w500Img(item.poster_path)}
+            src={`${imageBaseURL}${banner}${item.poster_path}` || no_image}
             alt={item.title}
             title={item.title}
           />

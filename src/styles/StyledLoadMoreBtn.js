@@ -1,21 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledLoadMoreBtn = styled.button`
-  background: #000;
-  width: 25%;
-  min-width: 200px;
-  height: 70px;
+  background: var(--red);
+  width: 20%;
   color: #fff;
   cursor: pointer;
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border-radius: 40px;
-  font-family: 'Abel', sans-serif;
-  font-size: 28px;
-  max-width: 1280px;
   display: block;
   margin: 20px auto;
-  padding: 0 20px;
+  padding: 10px 20px;
   outline: none;
+  border: 1px solid var(--red);
 
   :hover {
     opacity: 0.8;

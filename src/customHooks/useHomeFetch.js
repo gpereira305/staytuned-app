@@ -1,43 +1,46 @@
 import { useEffect, useState } from "react";
-import { apiConfig } from "../utils/config";
+import { popularMoviesURL } from "../utils/config";
 
 export const useHomeFetch = () => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [popMovies, setPopMovies] = useState([]);
+  const [popLoading, setPopLoading] = useState(true);
+  const [popError, setPopError] = useState(false);
 
-  const fetchMovies = async (endpoint) => {
-    setError(false);
-    setLoading(true);
+  const fetchPopMovies = async (endpoint) => {
+    setPopError(false);
+    setPopLoading(true);
+
+    const loadingMoreMovies = endpoint.search("page");
 
     try {
-      const result = await await (await fetch(endpoint)).json();
-      setMovies((prev) => ({
+      const result = await (await fetch(endpoint)).json();
+      setPopMovies((prev) => ({
         ...prev,
-        movies: [...result.results],
+        popMovies:
+          loadingMoreMovies !== -1
+            ? [...prev.popMovies, ...result.results]
+            : [...result.results],
         heroImage: prev.heroImage || result.results[0],
         currentPage: result.page,
         totalPages: result.total_pages,
       }));
     } catch (err) {
-      setError(true);
+      setPopError(true);
       console.log(err);
     }
-    setLoading(false);
+    setPopLoading(false);
   };
 
   useEffect(() => {
-    fetchMovies(
-      `${apiConfig.baseURL}movie/upcoming?api_key=${apiConfig.apiKey}`
-    );
+    fetchPopMovies(popularMoviesURL);
   }, []);
 
   return [
     {
-      movies,
-      loading,
-      error,
+      popMovies,
+      popLoading,
+      popError,
     },
-    fetchMovies,
+    fetchPopMovies,
   ];
 };
