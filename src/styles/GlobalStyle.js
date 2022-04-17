@@ -4,19 +4,21 @@ export const GlobalStyle = createGlobalStyle`
  * {
    list-style: none;
    text-decoration: none;
-   letter-spacing: 1.3px;
-   font-weight: normal;
+   letter-spacing: 1.2px;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 400;
    line-height: 1.2;
    margin: 0;
-    padding: 0;
+   padding: 0; 
  }
 
  
 
 :root {
+   --white:#fff; 
    --light: #cdcdcd;
-   --red: #e30000;
-   --gray: #ccc;
+   --red: #b90000;
+   --gray: #8d8d8d;
    --dark: #000;
    --light_dark: rgb(102 102 102);
    --golden: #ffb600;  
@@ -24,8 +26,7 @@ export const GlobalStyle = createGlobalStyle`
    --radius: 3px;
  }
 
-  body {
-
+  body { 
     box-sizing: border-box;
   }
 `;
@@ -52,10 +53,17 @@ export const NoResult = styled.div`
   }
 `;
 
-export const TrailerGrid = styled.div`
+export const MainButton = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 2% 0;
-  /* justify-content: center; */
+  justify-content: center;
+  margin: 3% 0;
+
+  > button {
+    background-color: var(--red);
+    color: var(--white);
+    border: 1px solid var(--red);
+    padding: 8px 35px;
+    cursor: pointer;
+    outline: none;
+  }
 `;

@@ -1,5 +1,12 @@
 import React from "react";
 import { convertMoney, formatDate } from "../utils/helpers";
+import {
+  MovieInfoDetailsText,
+  MovieInfoDetailsTextWrapper,
+  MovieInfoDetailsH4,
+  MovieInfoDetailsOverview,
+} from "../styles/MoviesDetailStyled.js";
+
 // import no_image from "../assets/images/no_image.jpg";
 
 const MoviesInfoDetail = ({ detailedMovieData }) => {
@@ -17,7 +24,10 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
     tagline,
     vote_average,
     homepage,
+    original_title,
   } = detailedMovieData;
+
+  console.log(detailedMovieData);
 
   // retira cada genero do array
   const getEachItem = (item) => {
@@ -30,76 +40,64 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
   };
 
   return (
-    <>
-      <h2>{title.length > 50 ? `${title.slice(0, 50)}...` : title} </h2>
-
-      {tagline && (
-        <small>
-          "{tagline.length > 100 ? `${tagline.slice(0, 100)}...` : tagline}"
-        </small>
-      )}
-      <br />
-      <br />
+    <MovieInfoDetailsText>
       <div>
-        <h3>
-          Lançamento:{" "}
-          <span style={{ fontSize: "16px" }}>
-            {formatDate(release_date) || "???"}
+        <h2>
+          {original_title.length > 50
+            ? `${original_title.slice(0, 50)}...`
+            : original_title}
+        </h2>
+        {title && <small>({title})</small>}
+        <br />
+        {tagline && (
+          <span>
+            "{tagline.length > 100 ? `${tagline.slice(0, 100)}...` : tagline}"
           </span>
-        </h3>
-        <h3>
+        )}
+      </div>
+
+      <MovieInfoDetailsTextWrapper>
+        <MovieInfoDetailsH4>
+          Lançamento: <span>{formatDate(release_date) || "???"}</span>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
           Orçamento:{" "}
-          <span style={{ fontSize: "14px" }}>
+          <span>
             {budget === 0 || null ? "???" : `U${convertMoney(budget)}`}
           </span>
-        </h3>
-
-        <h3>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
           Faturamento:{" "}
-          <span style={{ fontSize: "14px" }}>
+          <span>
             {revenue === 0 || null ? "???" : `U${convertMoney(revenue)}`}
           </span>
-        </h3>
-
-        <h3>
-          Duração:{" "}
-          <span style={{ fontSize: "14px" }}>{`${runtime} min` || "???"}</span>
-        </h3>
-
-        <h3>
-          Gêneros:{" "}
-          <span style={{ fontSize: "14px" }}>
-            {getEachItem(genres)?.join(", ") || "???"}
-          </span>
-        </h3>
-
-        <h3>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
+          Duração: <span>{`${runtime} min` || "???"}</span>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
+          Gêneros: <span>{getEachItem(genres)?.join(", ") || "???"}</span>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
           {spoken_languages.length > 1 ? "Idiomas:" : "Idioma:"}{" "}
-          <span style={{ fontSize: "14px" }}>
-            {getEachLang(spoken_languages)?.join(", ") || "???"}
-          </span>
-        </h3>
-
-        <h3>
-          Nota IMDb:{" "}
-          <span style={{ fontSize: "14px" }}>{vote_average || "???"}</span>
-        </h3>
-
-        <h3>
-          {production_countries.length > 1 ? "Países:" : "País:"}{" "}
-          <span style={{ fontSize: "14px" }}>
-            {getEachItem(production_countries)?.join(", ") || "???"}
-          </span>
-        </h3>
-        <h3>
+          <span>{getEachLang(spoken_languages)?.join(", ") || "???"}</span>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
+          Nota IMDb: <span>{vote_average || "???"}</span>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
+          {production_countries.length > 1
+            ? "Países de origem:"
+            : "País de origem:"}{" "}
+          <span>{getEachItem(production_countries)?.join(", ") || "???"}</span>
+        </MovieInfoDetailsH4>
+        <MovieInfoDetailsH4>
           {production_companies.length > 1 ? " Produtoras:" : " Produtora:"}{" "}
-          <span style={{ fontSize: "14px" }}>
-            {getEachItem(production_companies)?.join(", ") || "???"}
-          </span>
-        </h3>
+          <span>{getEachItem(production_companies)?.join(", ") || "???"}</span>
+        </MovieInfoDetailsH4>
 
         {homepage && (
-          <h3>
+          <MovieInfoDetailsH4 style={{ display: "flex", alignItems: "center" }}>
             Site oficial:{" "}
             <a
               style={{
@@ -113,23 +111,21 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {homepage}
+              <span className="material-icons">open_in_new</span>
             </a>
-          </h3>
+          </MovieInfoDetailsH4>
         )}
-        <br />
-        <br />
 
-        <div>
-          <h3>Enredo:</h3>
+        <MovieInfoDetailsOverview>
+          <h4>Enredo:</h4>
           <p>
             {overview.length > 700
               ? `${overview.slice(0, 700)}...`
               : overview || "???"}
           </p>
-        </div>
-      </div>
-    </>
+        </MovieInfoDetailsOverview>
+      </MovieInfoDetailsTextWrapper>
+    </MovieInfoDetailsText>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from "react";
 import { Router } from "@reach/router";
 import MoviesHeader from "./components/MoviesHeader.jsx";
-import HomeMovies from "./pages/HomeMovies";
-import DetailedMovies from "./pages/DetailedMovies.jsx";
-import NotFoundMovies from "./pages/NotFoundMovies.jsx";
+import MoviesHomePage from "./pages/MoviesHomePage";
+import MoviesGoToTop from "./components/MoviesGoToTop";
+import MoviesDetailPage from "./pages/MoviesDetailPage.jsx";
+import MoviesNotFound from "./pages/MoviesNotFound.jsx";
 
 import { GlobalStyle } from "./styles/GlobalStyle.js";
 import "./styles/styling.css";
@@ -12,10 +13,11 @@ const App = () => (
   <>
     <MoviesHeader />
     <Router>
-      <HomeMovies path="/" />
-      <DetailedMovies path="/:movieId" />
-      <NotFoundMovies default />
+      <MoviesHomePage path="/" />
+      <MoviesDetailPage path="/:movieId" />
+      <MoviesNotFound default />
     </Router>
+    <MoviesGoToTop />
     <GlobalStyle />
   </>
 );

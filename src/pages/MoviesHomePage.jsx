@@ -8,7 +8,6 @@ import MoviesLoadMoreButton from "../components/MoviesLoadMoreButton";
 import { useHomeFetch } from "../customHooks/useHomeFetch";
 import { useHeroFetch } from "../customHooks/useHeroFetch";
 import { Container, NoResult } from "../styles/GlobalStyle";
-import MoviesGoToTop from "../components/MoviesGoToTop";
 import no_image from "../assets/images/no_image.jpg";
 import {
   posterW500,
@@ -17,7 +16,7 @@ import {
   popularMoviesURL,
 } from "../utils/config";
 
-const HomeMovies = () => {
+const MoviesHomepage = () => {
   const [{ popMovies, popLoading, popError }, fetchPopMovies] = useHomeFetch();
   const [{ playingMovies, playingLoading, playingError }, fetchPlayingMovies] =
     useHeroFetch();
@@ -89,9 +88,8 @@ const HomeMovies = () => {
           </NoResult>
         )}
       </Container>
-      <MoviesGoToTop />
     </>
   );
 };
 
-export default HomeMovies;
+export default MoviesHomepage;

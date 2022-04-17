@@ -1,7 +1,7 @@
 import { Link } from "@reach/router";
 import React from "react";
 
-const NotFoundMovies = () => {
+const MoviesNotFound = () => {
   return (
     <div>
       <div>
@@ -12,4 +12,4 @@ const NotFoundMovies = () => {
   );
 };
 
-export default NotFoundMovies;
+export default MoviesNotFound;

@@ -1,5 +1,9 @@
 import React from "react";
-import { Container, TrailerGrid } from "../styles/GlobalStyle";
+import { Container } from "../styles/GlobalStyle";
+import {
+  MovieHeaderTitle,
+  MovieTrailerGrid,
+} from "../styles/MoviesDetailStyled";
 
 const MoviesTrailer = ({ detailedMovieData }) => {
   const { results } = detailedMovieData;
@@ -10,12 +14,12 @@ const MoviesTrailer = ({ detailedMovieData }) => {
 
   return (
     <Container>
-      <h2>Trailers</h2>
-      <TrailerGrid>
+      <MovieHeaderTitle>Trailers</MovieHeaderTitle>
+      <MovieTrailerGrid>
         {trailers.map((trailer, i) => (
           <Trailer trailer={trailer} key={i} />
         ))}
-      </TrailerGrid>
+      </MovieTrailerGrid>
     </Container>
   );
 };

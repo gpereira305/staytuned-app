@@ -33,7 +33,7 @@ export const useMovieFetch = (movieId) => {
       //   console.log(movieSimilarResult, "SIMILAR");
       setDetailedMovieData({
         ...movieDetailResult,
-        // ...movieCreditsResult,
+        ...movieCreditsResult,
         ...movieVideosResult,
         ...movieImagesResult,
         // ...movieSimilarResult,
