@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import React from "react";
 
 const HeaderMovies = () => {
@@ -5,8 +6,10 @@ const HeaderMovies = () => {
     <div className="header">
       <div className="header__wrapper">
         <div className="header__content">
-          <span className="material-icons">ondemand_video</span>
-          <h2>StreamFlix</h2>
+          <Link to="/" title="Voltar à home">
+            <span className="material-icons">ondemand_video</span>
+            <h2>StreamFlix</h2>
+          </Link>
         </div>
 
         <div className="header__about">

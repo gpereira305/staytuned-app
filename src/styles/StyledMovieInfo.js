@@ -1,102 +1,88 @@
-import styled from 'styled-components';
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import styled from "styled-components";
 
-export const StyledMovieInfo = styled.div`
-  background: ${props =>
-    props.backdrop
-      ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.backdrop}')`
-      : '#000'};
+export const StyledMovieInfo = styled.section`
+  position: relative;
+`;
+
+export const StyleBgInfo = styled.div`
   background-size: cover !important;
   background-position: center !important;
   width: 100%;
-  padding: 40px 20px;
+  height: 100vh;
   box-sizing: border-box;
   animation: animateMovieinfo 1s;
 
-  .movieinfo-content {
-    max-width: 1280px;
-    min-height: 450px;
-    margin: 0 auto;
-    background: rgb(0, 0, 0, 0.7);
-    border-radius: 20px;
-    position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    background: rgb(0 0 0 / 80%);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+`;
+
+export const StyledMovieInfoWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  width: calc(100% - 100px);
+  margin: auto;
+  top: 10%;
+  right: 0;
+  left: 0;
+  background: rgb(0 0 0 / 60%);
+
+  @media (max-width: 990px) {
+    flex-direction: column;
+    top: 10px;
   }
 
-  .movieinfo-thumb {
-    width: 300px;
-    float: left;
+  @media (max-width: 720px) {
+    width: calc(100% - 50px);
+  }
+`;
 
-    @media screen and (max-width: 768px) {
-      width: 100% !important;
+export const StyledMoviePoster = styled.div`
+  flex: 1;
+
+  .banner {
+    display: none;
+    max-width: 60%;
+
+    @media (max-width: 990px) {
+      display: block;
+    }
+
+    @media (max-width: 520px) {
+      display: none;
     }
   }
 
-  .movieinfo-text {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 40px;
-    color: #fff;
-    overflow: hidden;
+  .poster {
+    width: 100%;
+    min-width: 300px;
+    height: -webkit-fill-available;
 
-    h1 {
-      font-family: 'Abel', sans-serif;
-      font-size: 48px;
-      margin: 0;
-
-      @media screen and (max-width: 1000px) {
-        font-size: 32px !important;
-      }
-    }
-
-    h3 {
-      font-size: 16px;
-      line-height: 0;
-      margin-top: 30px;
-    }
-
-    p {
-      font-family: 'Abel', sans-serif;
-      font-size: 18px;
-      line-height: 26px;
+    @media (max-width: 990px) {
+      display: none;
     }
   }
+`;
 
-  .rating-director {
-    display: flex;
-    justify-content: flex-start;
-  }
+export const StyledMovieDetails = styled.div`
+  flex: 3;
+  padding: 5px 15px 5px;
+  color: var(--light);
 
-  .score {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background: #fff;
-    color: #000;
-    font-weight: 800;
-    border-radius: 25px;
-    margin: 0px 0 0 0;
-  }
+  h1 {
+    color: var(--red);
+    font-weight: bold;
+    text-transform: uppercase;
 
-  .director {
-    margin: 0 0 0 40px;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    min-height: 600px;
-    height: auto;
-  }
-
-  @keyframes animateMovieinfo {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
+    small {
+      font-size: 0.75rem;
+      font-style: italic;
     }
   }
 `;

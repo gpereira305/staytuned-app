@@ -11,7 +11,7 @@ import { Container, NoResult } from "../styles/GlobalStyle";
 import GoTopMovies from "../components/GoTopMovies";
 import no_image from "../assets/images/no_image.jpg";
 import {
-  poster,
+  posterW500,
   imageBaseURL,
   searchBaseURL,
   popularMoviesURL,
@@ -42,7 +42,6 @@ const HomeMovies = () => {
     fetchPopMovies(endPoint);
   };
 
-  // console.log(popMovies);
   return (
     <>
       {!searchTerm && (
@@ -65,7 +64,7 @@ const HomeMovies = () => {
                   clickable
                   movieImage={
                     item.poster_path
-                      ? `${imageBaseURL}${poster}${item?.poster_path}`
+                      ? `${imageBaseURL}${posterW500}${item?.poster_path}`
                       : no_image
                   }
                   movieId={item.id}

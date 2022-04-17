@@ -18,7 +18,7 @@ body {
   min-height: 8vh;
 }
 
-.header__content {
+.header__content a {
   display: flex;
   align-items: center;
   color: red;
@@ -71,21 +71,26 @@ body {
   );
 }
 
+.hero__text {
+  padding-right: 5%;
+  flex: 2;
+}
+
+.hero-slide__link {
+  flex: 1;
+}
+
 .hero-slide__item--content {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   position: absolute;
   width: 85%;
-  flex: 2;
+
   right: 0;
   left: 0;
   top: 13%;
   margin: auto;
-}
-
-.hero__text {
-  padding-right: 5%;
 }
 
 .hero__text h2 {
@@ -105,7 +110,7 @@ body {
 }
 
 .hero-slide__item-img {
-  max-width: 23%;
+  max-width: 72%;
 }
 
 /* SEARCH BAR */
@@ -181,7 +186,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .grid__image::before {

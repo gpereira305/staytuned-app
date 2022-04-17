@@ -6,9 +6,7 @@ export const StyledMovieThumb = styled.div`
     height: auto;
     transition: all 0.3s;
     object-fit: cover;
-
-    .clickable {
-      cursor: pointer;
-    }
+    /* min-height: 367px; */
+    min-height: 45.4vh;
   }
 `;

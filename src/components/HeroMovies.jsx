@@ -9,9 +9,10 @@ import no_image from "../assets/images/no_image.jpg";
 
 import { banner, poster, imageBaseURL } from "../utils/config";
 import SpinnerMovies from "./SpinnerMovies";
+import { Link } from "@reach/router";
 
 const HeroMovies = ({ playingMovies, playingLoading, playingError }) => {
-  console.log(playingMovies);
+  // console.log(playingMovies);
   return (
     <div className="fade-in">
       {playingError && (
@@ -32,7 +33,7 @@ const HeroMovies = ({ playingMovies, playingLoading, playingError }) => {
           modules={[Autoplay, Pagination, Navigation, EffectFade]}
           autoplay={{ delay: 5000 }}
           loop={true}
-          speed={3000}
+          speed={2500}
           grabCursor={true}
           spaceBetween={0}
           slidesPerView={1}
@@ -65,12 +66,14 @@ const HeroSlideItem = (props) => {
             <h2 className="title">{item.title}</h2>
             <p className="overview">{item.overview}</p>
           </div>
-          <img
-            className="hero-slide__item-img"
-            src={`${imageBaseURL}${banner}${item.poster_path}` || no_image}
-            alt={item.title}
-            title={item.title}
-          />
+          <Link to={`/${item.id}`} className="hero-slide__link">
+            <img
+              className="hero-slide__item-img"
+              src={`${imageBaseURL}${banner}${item.poster_path}` || no_image}
+              alt={item.title}
+              title={item.title}
+            />
+          </Link>
         </div>
       </div>
     </div>
