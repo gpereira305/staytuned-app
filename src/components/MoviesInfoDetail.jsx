@@ -2,19 +2,8 @@ import React from "react";
 import { convertMoney, formatDate } from "../utils/helpers";
 // import no_image from "../assets/images/no_image.jpg";
 
-const InfoMovieDetail = ({ detailedMovieData }) => {
+const MoviesInfoDetail = ({ detailedMovieData }) => {
   const {
-    // poster_path,
-    // backdrop_path,
-    original_title,
-    // cast,
-    // crew,
-    // homepage,
-    // logos,
-    // backdrops,
-    // posters,
-    // status,
-    // original_language,
     overview,
     genres,
     spoken_languages,
@@ -27,6 +16,7 @@ const InfoMovieDetail = ({ detailedMovieData }) => {
     runtime,
     tagline,
     vote_average,
+    homepage,
   } = detailedMovieData;
 
   // retira cada genero do array
@@ -41,25 +31,15 @@ const InfoMovieDetail = ({ detailedMovieData }) => {
 
   return (
     <>
-      <h1>
-        {original_title.length > 50
-          ? `${original_title.slice(0, 50)}...`
-          : original_title}{" "}
-        -{" "}
-        <small>
-          ({title.length > 50 ? `${title.slice(0, 50)}...` : title})
-        </small>
-      </h1>
+      <h2>{title.length > 50 ? `${title.slice(0, 50)}...` : title} </h2>
 
       {tagline && (
-        <span>
+        <small>
           "{tagline.length > 100 ? `${tagline.slice(0, 100)}...` : tagline}"
-        </span>
+        </small>
       )}
       <br />
       <br />
-      <br />
-
       <div>
         <h3>
           Lançamento:{" "}
@@ -117,8 +97,29 @@ const InfoMovieDetail = ({ detailedMovieData }) => {
             {getEachItem(production_companies)?.join(", ") || "???"}
           </span>
         </h3>
+
+        {homepage && (
+          <h3>
+            Site oficial:{" "}
+            <a
+              style={{
+                fontSize: "14px",
+                color: "#adadad",
+                fontStyle: "italic",
+                textDecoration: "underline",
+              }}
+              title="Visitar site"
+              href={homepage}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {homepage}
+            </a>
+          </h3>
+        )}
         <br />
         <br />
+
         <div>
           <h3>Enredo:</h3>
           <p>
@@ -132,4 +133,4 @@ const InfoMovieDetail = ({ detailedMovieData }) => {
   );
 };
 
-export default InfoMovieDetail;
+export default MoviesInfoDetail;

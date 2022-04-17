@@ -8,11 +8,10 @@ import "swiper/css/pagination";
 import no_image from "../assets/images/no_image.jpg";
 
 import { banner, poster, imageBaseURL } from "../utils/config";
-import SpinnerMovies from "./SpinnerMovies";
+import MoviesSpinner from "./MoviesSpinner";
 import { Link } from "@reach/router";
 
-const HeroMovies = ({ playingMovies, playingLoading, playingError }) => {
-  // console.log(playingMovies);
+const MoviesHero = ({ playingMovies, playingLoading, playingError }) => {
   return (
     <div className="fade-in">
       {playingError && (
@@ -27,7 +26,7 @@ const HeroMovies = ({ playingMovies, playingLoading, playingError }) => {
         </div>
       )}
       {!playingMovies ? (
-        <SpinnerMovies />
+        <MoviesSpinner />
       ) : (
         <Swiper
           modules={[Autoplay, Pagination, Navigation, EffectFade]}
@@ -80,4 +79,4 @@ const HeroSlideItem = (props) => {
   );
 };
 
-export default HeroMovies;
+export default MoviesHero;

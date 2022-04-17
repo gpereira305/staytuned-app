@@ -1,7 +1,7 @@
 import React from "react";
 import { SpinnerWrapper, StyledSpinner } from "../styles/StyledSpinner";
 
-const SpinnerMovies = () => {
+const MoviesSpinner = () => {
   return (
     <SpinnerWrapper>
       <StyledSpinner />
@@ -10,4 +10,4 @@ const SpinnerMovies = () => {
   );
 };
 
-export default SpinnerMovies;
+export default MoviesSpinner;

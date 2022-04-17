@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import HeroMovies from "../components/HeroMovies";
-import SearchBarMovies from "../components/SearchBarMovies";
-import GridMovies from "../components/GridMovies";
-import ThumbMovies from "../components/ThumbMovies";
-import SpinnerMovies from "../components/SpinnerMovies";
-import LoadBtnMovies from "../components/LoadBtnMovies";
+import MoviesHero from "../components/MoviesHero";
+import MoviesSearchBar from "../components/MoviesSearchBar";
+import MoviesGrid from "../components/MoviesGrid";
+import MoviesThumbnail from "../components/MoviesThumbnail";
+import MoviesSpinner from "../components/MoviesSpinner";
+import MoviesLoadMoreButton from "../components/MoviesLoadMoreButton";
 import { useHomeFetch } from "../customHooks/useHomeFetch";
 import { useHeroFetch } from "../customHooks/useHeroFetch";
 import { Container, NoResult } from "../styles/GlobalStyle";
-import GoTopMovies from "../components/GoTopMovies";
+import MoviesGoToTop from "../components/MoviesGoToTop";
 import no_image from "../assets/images/no_image.jpg";
 import {
   posterW500,
@@ -45,21 +45,21 @@ const HomeMovies = () => {
   return (
     <>
       {!searchTerm && (
-        <HeroMovies
+        <MoviesHero
           playingMovies={playingMovies}
           playingLoading={playingLoading}
           playingError={playingError}
         />
       )}
-      <SearchBarMovies callback={searchTermResults} />
+      <MoviesSearchBar callback={searchTermResults} />
       <Container>
         {popMovies.popMovies?.length > 0 ? (
           <>
-            <GridMovies
+            <MoviesGrid
               header={searchTerm ? "Resultado da pesquisa" : "Filmes populares"}
             >
               {popMovies.popMovies?.map((item, i) => (
-                <ThumbMovies
+                <MoviesThumbnail
                   key={i}
                   clickable
                   movieImage={
@@ -73,11 +73,11 @@ const HomeMovies = () => {
                   movieDate={item?.release_date}
                 />
               ))}
-            </GridMovies>
+            </MoviesGrid>
 
-            {popLoading && <SpinnerMovies />}
+            {popLoading && <MoviesSpinner />}
             {popMovies?.currentPage < popMovies?.totalPages && !popLoading && (
-              <LoadBtnMovies
+              <MoviesLoadMoreButton
                 text={"Carregar mais"}
                 callback={handleLoadMoreMovies}
               />
@@ -89,7 +89,7 @@ const HomeMovies = () => {
           </NoResult>
         )}
       </Container>
-      <GoTopMovies />
+      <MoviesGoToTop />
     </>
   );
 };

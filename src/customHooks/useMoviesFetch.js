@@ -34,8 +34,8 @@ export const useMovieFetch = (movieId) => {
       setDetailedMovieData({
         ...movieDetailResult,
         // ...movieCreditsResult,
-        // ...movieVideosResult,
-        // ...movieImagesResult,
+        ...movieVideosResult,
+        ...movieImagesResult,
         // ...movieSimilarResult,
       });
     } catch (err) {

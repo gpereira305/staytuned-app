@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledGrid, StyledGridContent } from "../styles/StyledGrid";
 
-const GridMovies = ({ header, children }) => {
+const MoviesGrid = ({ header, children }) => {
   return (
     <StyledGrid className="fade-in">
       <div style={{ minHeight: "10vh", display: "flex", alignItems: "center" }}>
@@ -20,4 +20,4 @@ const GridMovies = ({ header, children }) => {
   );
 };
 
-export default GridMovies;
+export default MoviesGrid;

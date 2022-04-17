@@ -31,9 +31,13 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  padding: 0 5%;
+  padding: 0 3%;
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+
+  /* @media (max-width: 720px) {
+    width: calc(100% - 50px);
+  } */
 `;
 
 export const NoResult = styled.div`
@@ -46,4 +50,12 @@ export const NoResult = styled.div`
     color: var(--red);
     font-weight: bold;
   }
+`;
+
+export const TrailerGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 2% 0;
+  /* justify-content: center; */
 `;

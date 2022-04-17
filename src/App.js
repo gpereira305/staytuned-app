@@ -1,6 +1,6 @@
 import React from "react";
 import { Router } from "@reach/router";
-import HeaderMovies from "./components/HeaderMovies.jsx";
+import MoviesHeader from "./components/MoviesHeader.jsx";
 import HomeMovies from "./pages/HomeMovies";
 import DetailedMovies from "./pages/DetailedMovies.jsx";
 import NotFoundMovies from "./pages/NotFoundMovies.jsx";
@@ -10,7 +10,7 @@ import "./styles/styling.css";
 
 const App = () => (
   <>
-    <HeaderMovies />
+    <MoviesHeader />
     <Router>
       <HomeMovies path="/" />
       <DetailedMovies path="/:movieId" />

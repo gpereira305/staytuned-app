@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledLoadMoreBtn } from "../styles/StyledLoadMoreBtn";
 
-const LoadBtnMovies = ({ text, callback }) => {
+const MoviesLoadMoreButton = ({ text, callback }) => {
   return (
     <div
       style={{
@@ -18,4 +18,4 @@ const LoadBtnMovies = ({ text, callback }) => {
   );
 };
 
-export default LoadBtnMovies;
+export default MoviesLoadMoreButton;

@@ -1,23 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { FormSearchMovies } from "../styles/StyledSearchBar";
 
-const SearchBarMovies = ({ callback }) => {
+const MoviesSearchBar = ({ callback }) => {
   // const [search, setSearch] = useState("");
   const [state, setState] = useState("");
-  const timeout = useRef(null);
 
   const handleSearch = (e) => {
     const { value } = e.target;
-    // clearTimeout(timeout.current);
     setState(value);
     callback(value);
-    // timeout.current = setTimeout(() => {
-    //   callback(value);
-    // }, 500);
   };
 
   return (
-    <FormSearchMovies>
+    <FormSearchMovies className="fade-in">
       <div>
         <input
           type="text"
@@ -32,4 +27,4 @@ const SearchBarMovies = ({ callback }) => {
   );
 };
 
-export default SearchBarMovies;
+export default MoviesSearchBar;

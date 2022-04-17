@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const StyledNavigation = styled.section`
+  background: #000;
   width: 100%;
   color: #fff;
-  z-index: 1;
-  background-color: var(--dark);
 
   > div {
     width: calc(100% - 100px);
@@ -14,11 +13,14 @@ export const StyledNavigation = styled.section`
     height: 100%;
     padding: 10px 0;
 
+    @media (max-width: 720px) {
+      width: calc(100% - 50px);
+    }
+
     > a {
       display: flex;
       align-items: center;
       color: #fff;
-      margin-right: 10px;
       flex: 4;
 
       h4 {
@@ -29,11 +31,9 @@ export const StyledNavigation = styled.section`
     div {
       display: flex;
       align-items: baseline;
-      margin-left: 10px;
       flex: 5;
 
-      h3 {
-        margin-right: 10px;
+      h1 {
         text-transform: uppercase;
       }
 

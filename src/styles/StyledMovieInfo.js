@@ -15,7 +15,7 @@ export const StyleBgInfo = styled.div`
   &::before {
     position: absolute;
     content: "";
-    background: rgb(0 0 0 / 80%);
+    background: rgb(0 0 0 / 50%);
     left: 0;
     top: 0;
     bottom: 0;
@@ -28,14 +28,13 @@ export const StyledMovieInfoWrapper = styled.div`
   position: absolute;
   width: calc(100% - 100px);
   margin: auto;
-  top: 10%;
+  top: 3%;
   right: 0;
   left: 0;
-  background: rgb(0 0 0 / 60%);
+  background: rgb(0 0 0 / 80%);
 
   @media (max-width: 990px) {
     flex-direction: column;
-    top: 10px;
   }
 
   @media (max-width: 720px) {
@@ -75,14 +74,13 @@ export const StyledMovieDetails = styled.div`
   padding: 5px 15px 5px;
   color: var(--light);
 
-  h1 {
+  h2 {
     color: var(--red);
     font-weight: bold;
     text-transform: uppercase;
-
-    small {
-      font-size: 0.75rem;
-      font-style: italic;
-    }
+  }
+  small {
+    font-size: 0.75rem;
+    font-style: italic;
   }
 `;

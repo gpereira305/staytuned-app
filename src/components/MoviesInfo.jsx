@@ -2,7 +2,7 @@ import React from "react";
 import no_image from "../assets/images/no_image.jpg";
 import { imageBaseURL, posterW500, banner } from "../utils/config";
 // import { convertMoney, formatDate } from "../utils/helpers";
-import InfoMovieDetail from "./InfoMovieDetail";
+import MoviesInfoDetail from "./MoviesInfoDetail";
 import {
   StyledMovieInfo,
   StyleBgInfo,
@@ -11,7 +11,7 @@ import {
   StyledMovieDetails,
 } from "../styles/StyledMovieInfo";
 
-const InfoMovies = ({ detailedMovieData }) => {
+const MoviesInfo = ({ detailedMovieData }) => {
   const { poster_path, backdrop_path, title } = detailedMovieData;
 
   const background = `url(${imageBaseURL}${banner}${backdrop_path})`;
@@ -45,11 +45,11 @@ const InfoMovies = ({ detailedMovieData }) => {
         </StyledMoviePoster>
 
         <StyledMovieDetails>
-          <InfoMovieDetail detailedMovieData={detailedMovieData} />
+          <MoviesInfoDetail detailedMovieData={detailedMovieData} />
         </StyledMovieDetails>
       </StyledMovieInfoWrapper>
     </StyledMovieInfo>
   );
 };
 
-export default InfoMovies;
+export default MoviesInfo;

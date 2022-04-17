@@ -18,6 +18,12 @@ body {
   min-height: 8vh;
 }
 
+@media (max-width: 720px) {
+  .header__wrapper {
+    width: calc(100% - 50px);
+  }
+}
+
 .header__content a {
   display: flex;
   align-items: center;

@@ -2,7 +2,7 @@ import { Link } from "@reach/router";
 import React from "react";
 import { StyledMovieThumb } from "../styles/StyledMovieThumb";
 
-const ThumbMovies = ({
+const MoviesThumbnail = ({
   movieImage,
   movieId,
   clickable,
@@ -33,4 +33,4 @@ const ThumbMovies = ({
   );
 };
 
-export default ThumbMovies;
+export default MoviesThumbnail;

@@ -1,11 +1,11 @@
 import React from "react";
-import NavigationMovies from "../components/NavigationMovies";
-import InfoMovies from "../components/InfoMovies";
-import InfoBarMovies from "../components/InfoBarMovies";
-import GridMovies from "../components/GridMovies";
-import CastMovies from "../components/CastMovies";
-import SpinnerMovies from "../components/SpinnerMovies";
+import MoviesDetailNav from "../components/MoviesDetailNav";
+import MoviesInfo from "../components/MoviesInfo";
+import MoviesGrid from "../components/MoviesGrid";
+import MoviesCast from "../components/MoviesCast";
+import MoviesSpinner from "../components/MoviesSpinner";
 import { useMovieFetch } from "../customHooks/useMoviesFetch";
+import MoviesTrailer from "../components/MoviesTrailer";
 
 const DetailedMovies = ({ movieId }) => {
   const [detailedMovieData, fetchLoading, fetchError] = useMovieFetch(movieId);
@@ -34,28 +34,30 @@ const DetailedMovies = ({ movieId }) => {
     status,
     tagline,
     vote_average,
+    results,
   } = detailedMovieData;
 
-  console.log(detailedMovieData);
   // const formatDate = (rawDate) => {
   //   return rawDate ? rawDate?.split("-").reverse().join("/") : "???";
   // };
 
-  if (fetchLoading) return <SpinnerMovies />;
+  if (fetchLoading) return <MoviesSpinner />;
   if (fetchError) return <div>Um erro ocorreu</div>;
 
   return (
     <>
-      {/* <NavigationMovies
+      <MoviesDetailNav
         title={title}
         originalTitle={original_title}
         date={release_date}
-      /> */}
-      <InfoMovies detailedMovieData={detailedMovieData} />
-      <InfoBarMovies />
-      <GridMovies>
-        <CastMovies />
-      </GridMovies>
+      />
+      <MoviesInfo detailedMovieData={detailedMovieData} />
+      {results.length > 0 && (
+        <MoviesTrailer detailedMovieData={detailedMovieData} />
+      )}
+      <MoviesGrid>
+        <MoviesCast />
+      </MoviesGrid>
     </>
   );
 };

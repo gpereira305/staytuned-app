@@ -2,21 +2,20 @@ import { Link } from "@reach/router";
 import React from "react";
 import { StyledNavigation } from "../styles/StyledNavigation";
 
-const NavigationMovies = ({ originalTitle, title, date }) => {
+const MoviesDetailNav = ({ originalTitle, title, date }) => {
   return (
     <StyledNavigation>
       <div>
         <Link to="/" title="Voltar à home">
-          <span className="material-icons">home</span>
+          <span className="material-icons">arrow_back</span>
           <h4>Voltar</h4>
         </Link>
-        {/* <div>
-          <h3>{originalTitle}</h3>
-          <span>({title})</span>
-        </div> */}
+        <div>
+          <h1>{originalTitle ? originalTitle : ""}</h1>
+        </div>
       </div>
     </StyledNavigation>
   );
 };
 
-export default NavigationMovies;
+export default MoviesDetailNav;
