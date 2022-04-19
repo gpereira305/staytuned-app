@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import no_image from "../assets/images/no_image.jpg";
 import { imageBaseURL, posterW500 } from "../utils/config";
 
-import { Container, MainButton } from "../styles/GlobalStyle";
+import { Container, MainButton } from "../styles/GlobalStyled";
 import { CastGrid, MovieHeaderTitle } from "../styles/MoviesDetailStyled";
 
 const MoviesCast = ({ detailedMovieData }) => {
@@ -20,9 +20,8 @@ const MoviesCast = ({ detailedMovieData }) => {
           <MovieHeaderTitle>Elenco</MovieHeaderTitle>
           <CastGrid>
             {cast.slice(0, visibleCast).map((item, i) => (
-              <div key={i}>
+              <div key={i} className="cast__wrapper">
                 <img
-                  style={{ width: "100%" }}
                   src={
                     item.profile_path
                       ? `${imageBaseURL}${posterW500}${item.profile_path}`
@@ -31,14 +30,16 @@ const MoviesCast = ({ detailedMovieData }) => {
                   alt={item.name}
                   title={item.name}
                 />
-                <p>{item.name}</p>
-                <small>"{item.character}"</small>
+                <div>
+                  <p>{item.name}</p>
+                  <small>"{item.character}"</small>
+                </div>
               </div>
             ))}
           </CastGrid>
           {cast.slice(0, visibleCast).length < cast.length ? (
-            <MainButton onClick={handleLoad}>
-              <button type="button" title="Mostar mais">
+            <MainButton>
+              <button type="button" title="Mostar mais" onClick={handleLoad}>
                 Mostrar mais
               </button>
             </MainButton>
@@ -46,12 +47,11 @@ const MoviesCast = ({ detailedMovieData }) => {
             ""
           )}
 
-          <MovieHeaderTitle>Produtores</MovieHeaderTitle>
+          <MovieHeaderTitle>Produção</MovieHeaderTitle>
           <CastGrid>
             {crew.slice(0, visibleCast).map((item, i) => (
-              <div key={i}>
+              <div key={i} className="cast__wrapper">
                 <img
-                  style={{ width: "100%" }}
                   src={
                     item.profile_path
                       ? `${imageBaseURL}${posterW500}${item.profile_path}`
@@ -60,14 +60,16 @@ const MoviesCast = ({ detailedMovieData }) => {
                   alt={item.name}
                   title={item.name}
                 />
-                <p>{item.name}</p>
-                <small>({item.job})</small>
+                <div>
+                  <p>{item.name}</p>
+                  <small>({item.job})</small>
+                </div>
               </div>
             ))}
           </CastGrid>
           {crew.slice(0, visibleCast).length < crew.length ? (
-            <MainButton onClick={handleLoad}>
-              <button type="button" title="Mostar mais">
+            <MainButton>
+              <button type="button" title="Mostar mais" onClick={handleLoad}>
                 Mostrar mais
               </button>
             </MainButton>

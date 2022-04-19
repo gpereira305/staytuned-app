@@ -1,5 +1,5 @@
 import React from "react";
-import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
+import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -7,36 +7,35 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import no_image from "../assets/images/no_image.jpg";
 
-import { banner, poster, imageBaseURL } from "../utils/config";
+import { banner, imageBaseURL } from "../utils/config";
 import MoviesSpinner from "./MoviesSpinner";
 import { Link } from "@reach/router";
+import { NoResult } from "../styles/GlobalStyled";
+import {
+  MovieHeroSlide,
+  MovieHeroSlideContent,
+  MovieHeroSlideItem,
+} from "../styles/MoviesHomePageStyled";
 
 const MoviesHero = ({ playingMovies, playingLoading, playingError }) => {
   return (
     <div className="fade-in">
       {playingError && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <NoResult>
           <h2>Algo de errado aconteceu!</h2>
-        </div>
+        </NoResult>
       )}
       {!playingMovies ? (
         <MoviesSpinner />
       ) : (
         <Swiper
-          modules={[Autoplay, Pagination, Navigation, EffectFade]}
+          modules={[Autoplay, Pagination, Navigation, EffectFade, Parallax]}
           autoplay={{ delay: 5000 }}
           loop={true}
           speed={2500}
           grabCursor={true}
           spaceBetween={0}
           slidesPerView={1}
-          effect={"fade"}
         >
           {playingMovies.playingMovies?.map((item, i) => (
             <SwiperSlide key={i}>
@@ -53,29 +52,31 @@ const HeroSlideItem = (props) => {
   const item = props.item;
 
   return (
-    <div
-      className="hero-slide"
+    <MovieHeroSlide
       style={{
         backgroundImage: `url(${imageBaseURL}${banner}${item.backdrop_path})`,
       }}
     >
-      <div className="hero-slide__item">
-        <div className="hero-slide__item--content">
+      <MovieHeroSlideItem>
+        <MovieHeroSlideContent>
           <div className="hero__text">
-            <h2 className="title">{item.title}</h2>
-            <p className="overview">{item.overview}</p>
+            <h2>{item.title}</h2>
+            <p>
+              {item.overview.length > 300
+                ? `${item.overview.slice(0, 300)}...`
+                : item.overview || "???"}{" "}
+            </p>
           </div>
-          <Link to={`/${item.id}`} className="hero-slide__link">
+          <Link to={`/${item.id}`}>
             <img
-              className="hero-slide__item-img"
               src={`${imageBaseURL}${banner}${item.poster_path}` || no_image}
               alt={item.title}
               title={item.title}
             />
           </Link>
-        </div>
-      </div>
-    </div>
+        </MovieHeroSlideContent>
+      </MovieHeroSlideItem>
+    </MovieHeroSlide>
   );
 };
 

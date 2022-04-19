@@ -1,11 +1,11 @@
 import React from "react";
-import { StyledGrid, StyledGridContent } from "../styles/StyledGrid";
+import { MoviesGridWrapper } from "../styles/MoviesHomePageStyled";
 
 const MoviesGrid = ({ header, children }) => {
   return (
-    <StyledGrid className="fade-in">
-      <div style={{ minHeight: "10vh", display: "flex", alignItems: "center" }}>
-        <h1
+    <MoviesGridWrapper className="fade-in">
+      <div>
+        <h2
           style={{
             color: "var(--red)",
             textTransform: "uppercase",
@@ -13,10 +13,10 @@ const MoviesGrid = ({ header, children }) => {
           }}
         >
           {header}
-        </h1>
+        </h2>
       </div>
-      <StyledGridContent>{children}</StyledGridContent>
-    </StyledGrid>
+      <div>{children}</div>
+    </MoviesGridWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyled = createGlobalStyle`
  * {
    list-style: none;
    text-decoration: none;
@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
    font-weight: 400;
    line-height: 1.2;
    margin: 0;
-   padding: 0; 
+   padding: 0;  
  }
 
  
@@ -28,6 +28,29 @@ export const GlobalStyle = createGlobalStyle`
 
   body { 
     box-sizing: border-box;
+
+  .fade-in {
+      -webkit-animation: fade-in 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+       animation: fade-in 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+    }
+
+   @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+    opacity: 1;
+     }
+   }
+
+   @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+   }
   }
 `;
 
@@ -35,10 +58,6 @@ export const Container = styled.div`
   padding: 0 3%;
   position: relative;
   margin-bottom: 2%;
-
-  /* @media (max-width: 720px) {
-    width: calc(100% - 50px);
-  } */
 `;
 
 export const NoResult = styled.div`
@@ -65,5 +84,21 @@ export const MainButton = styled.div`
     padding: 8px 35px;
     cursor: pointer;
     outline: none;
+  }
+`;
+
+export const MoviesFooterWrapper = styled.div`
+  background-color: var(--dark);
+  min-height: 8vh;
+
+  div {
+    color: var(--white);
+  }
+
+  > span {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: var(--gray);
   }
 `;

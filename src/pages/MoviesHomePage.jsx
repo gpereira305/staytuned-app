@@ -7,7 +7,7 @@ import MoviesSpinner from "../components/MoviesSpinner";
 import MoviesLoadMoreButton from "../components/MoviesLoadMoreButton";
 import { useHomeFetch } from "../customHooks/useHomeFetch";
 import { useHeroFetch } from "../customHooks/useHeroFetch";
-import { Container, NoResult } from "../styles/GlobalStyle";
+import { Container, NoResult } from "../styles/GlobalStyled";
 import no_image from "../assets/images/no_image.jpg";
 import {
   posterW500,
@@ -15,6 +15,7 @@ import {
   searchBaseURL,
   popularMoviesURL,
 } from "../utils/config";
+import { MoviesGridItem } from "../styles/MoviesHomePageStyled";
 
 const MoviesHomepage = () => {
   const [{ popMovies, popLoading, popError }, fetchPopMovies] = useHomeFetch();
@@ -51,27 +52,30 @@ const MoviesHomepage = () => {
         />
       )}
       <MoviesSearchBar callback={searchTermResults} />
+
       <Container>
         {popMovies.popMovies?.length > 0 ? (
           <>
             <MoviesGrid
               header={searchTerm ? "Resultado da pesquisa" : "Filmes populares"}
             >
-              {popMovies.popMovies?.map((item, i) => (
-                <MoviesThumbnail
-                  key={i}
-                  clickable
-                  movieImage={
-                    item.poster_path
-                      ? `${imageBaseURL}${posterW500}${item?.poster_path}`
-                      : no_image
-                  }
-                  movieId={item.id}
-                  movieName={item?.original_title}
-                  movieRating={item?.vote_average}
-                  movieDate={item?.release_date}
-                />
-              ))}
+              <MoviesGridItem>
+                {popMovies.popMovies?.map((item, i) => (
+                  <MoviesThumbnail
+                    key={i}
+                    clickable
+                    movieImage={
+                      item.poster_path
+                        ? `${imageBaseURL}${posterW500}${item?.poster_path}`
+                        : no_image
+                    }
+                    movieId={item.id}
+                    movieName={item?.original_title}
+                    movieRating={item?.vote_average}
+                    movieDate={item?.release_date}
+                  />
+                ))}
+              </MoviesGridItem>
             </MoviesGrid>
 
             {popLoading && <MoviesSpinner />}

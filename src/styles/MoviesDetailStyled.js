@@ -48,7 +48,7 @@ export const MovieInfoPoster = styled.div`
 
   .poster {
     width: 100%;
-    min-width: 300px;
+    min-width: 400px;
     height: -webkit-fill-available;
 
     @media (max-width: 990px) {
@@ -67,9 +67,14 @@ export const MovieInfoDetailsText = styled.div`
 
     h2 {
       color: var(--red);
-      font-weight: 600;
+      font-weight: 500;
       text-transform: uppercase;
+
+      @media (max-width: 720px) {
+        font-size: 1.2rem;
+      }
     }
+
     > small {
       color: var(--red);
       font-size: 0.75rem;
@@ -88,27 +93,34 @@ export const MovieInfoDetailsH4 = styled.h4`
   text-transform: uppercase;
   line-height: 1.65;
 
-  small {
-  }
-
   > span {
     font-size: 0.85rem;
     color: var(--gray);
     text-transform: capitalize;
     margin-left: 10px;
+
+    @media (max-width: 720px) {
+      font-size: 0.7rem !important;
+    }
   }
 
   a {
     span {
       color: #6767c7;
       margin-left: 10px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
+  }
+
+  @media (max-width: 720px) {
+    font-size: 0.85rem;
+    line-height: 1.35;
   }
 `;
 
 export const MovieInfoDetailsOverview = styled.div`
   margin-top: 3%;
+  padding-right: 10%;
 
   h4 {
     text-transform: uppercase;
@@ -121,6 +133,10 @@ export const MovieInfoDetailsOverview = styled.div`
     font-weight: 400;
     font-style: italic;
     color: var(--gray);
+
+    @media (max-width: 720px) {
+      font-size: 0.65rem;
+    }
   }
 `;
 
@@ -129,6 +145,10 @@ export const MovieTrailerGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+
+  @media (max-width: 420px) {
+    justify-content: center;
+  }
 `;
 
 // CAST COMPONENT
@@ -137,29 +157,37 @@ export const MovieHeaderTitle = styled.h1`
   text-transform: uppercase;
   color: var(--red);
   font-weight: 500;
+  font-size: 1.6rem;
 `;
 
 export const CastGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-gap: 15px;
+  grid-gap: 10px;
 
-  > div {
+  > .cast__wrapper {
     background-color: var(--dark);
     color: var(--light);
-  }
 
-  p {
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 0 5px;
-  }
+    > img {
+      width: 100%;
+    }
 
-  small {
-    font-size: 0.65rem;
-    font-style: italic;
-    padding: 0 5px;
+    > div {
+      padding: 5px;
+
+      p {
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--red);
+      }
+
+      small {
+        font-size: 0.65rem;
+        font-style: italic;
+      }
+    }
   }
 
   @media (max-width: 1390px) {

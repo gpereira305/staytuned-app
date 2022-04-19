@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormSearchMovies } from "../styles/StyledSearchBar";
+import { FormSearchMovies } from "../styles/MoviesSearchBarStyled";
 
 const MoviesSearchBar = ({ callback }) => {
   // const [search, setSearch] = useState("");

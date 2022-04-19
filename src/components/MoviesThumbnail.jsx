@@ -1,6 +1,9 @@
 import { Link } from "@reach/router";
 import React from "react";
-import { StyledMovieThumb } from "../styles/StyledMovieThumb";
+import {
+  MoviesGridImage,
+  MoviesGridInfo,
+} from "../styles/MoviesHomePageStyled";
 
 const MoviesThumbnail = ({
   movieImage,
@@ -11,25 +14,23 @@ const MoviesThumbnail = ({
   movieDate,
 }) => {
   return (
-    <div className="grid__image fade-in">
+    <MoviesGridImage>
       <span title="Média de valiações">{movieRating || "???"}</span>
       <Link to={`/${movieId}`}>
-        <StyledMovieThumb>
+        <div>
           <img
             className="clickable"
             src={movieImage}
             alt={movieName}
             title={movieName}
           />
-          <div className="grid__image--info">
+          <MoviesGridInfo className="info">
             <p>{movieName}</p>
-            <small>
-              {movieDate ? movieDate?.split("-").reverse().join("/") : "???"}
-            </small>
-          </div>
-        </StyledMovieThumb>
+            {movieDate ? <small>({movieDate?.slice(0, 4)})</small> : "???"}
+          </MoviesGridInfo>
+        </div>
       </Link>
-    </div>
+    </MoviesGridImage>
   );
 };
 

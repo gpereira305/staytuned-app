@@ -12,9 +12,9 @@ export const SpinnerWrapper = styled.div`
   }
 `;
 
-export const StyledSpinner = styled.div`
-  border: 3px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid var(--red); /* Blue */
+export const MoviesSpinnerStyled = styled.div`
+  border: 3px solid #f3f3f3;
+  border-top: 5px solid var(--red);
   border-radius: 50%;
   width: 60px;
   height: 60px;

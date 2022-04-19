@@ -1,5 +1,14 @@
 import React from "react";
-import { StyledLoadMoreBtn } from "../styles/StyledLoadMoreBtn";
+import styled from "styled-components";
+
+const LoadButton = styled.button`
+  background-color: var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  padding: 8px 35px;
+  cursor: pointer;
+  outline: none;
+`;
 
 const MoviesLoadMoreButton = ({ text, callback }) => {
   return (
@@ -11,9 +20,7 @@ const MoviesLoadMoreButton = ({ text, callback }) => {
         minHeight: "15vh",
       }}
     >
-      <StyledLoadMoreBtn type="button" onClick={callback}>
-        {text}
-      </StyledLoadMoreBtn>
+      <LoadButton onClick={callback}>{text}</LoadButton>
     </div>
   );
 };

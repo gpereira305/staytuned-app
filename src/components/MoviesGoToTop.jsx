@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const ScrollTop = styled.div`
   position: fixed;
-  bottom: 13%;
-  right: 5%;
+  bottom: 10%;
+  right: 3%;
   z-index: 100;
 
   span {
