@@ -27,8 +27,6 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
     original_title,
   } = detailedMovieData;
 
-  console.log(detailedMovieData);
-
   // retira cada genero do array
   const getEachItem = (item) => {
     return item.map((g) => g.name);
@@ -83,7 +81,11 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
           <span>{getEachLang(spoken_languages)?.join(", ") || "???"}</span>
         </MovieInfoDetailsH4>
         <MovieInfoDetailsH4>
-          Nota IMDb: <span>{vote_average || "???"}</span>
+          {console.log(vote_average)}
+          Nota IMDb:{" "}
+          <span style={{ color: vote_average < 6 ? "#bd8302" : "#099f0f" }}>
+            {vote_average || "???"}
+          </span>
         </MovieInfoDetailsH4>
         <MovieInfoDetailsH4>
           {production_countries.length > 1

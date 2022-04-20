@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "../styles/GlobalStyled";
 
+// função para a página renderizar no topo
+const jumpToTop = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
+
 const MoviesAbout = () => {
+  useEffect(() => {
+    jumpToTop();
+  }, []);
+
   return (
     <Container>
       <div style={{ marginTop: "10%", minHeight: "90vh" }}>

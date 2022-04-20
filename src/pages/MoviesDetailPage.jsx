@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MoviesInfo from "../components/MoviesInfo";
 import MoviesCast from "../components/MoviesCast";
 import MoviesSpinner from "../components/MoviesSpinner";
 import { useMovieFetch } from "../customHooks/useMoviesFetch";
 import MoviesTrailer from "../components/MoviesTrailer";
 import MoviesPosters from "../components/MoviesPosters";
+import MoviesSimilar from "../components/MoviesSimilar";
 
-const MoviesDetail = ({ movieId }) => {
+// função para a página renderizar no topo
+const jumpToTop = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
+
+const MoviesDetailPage = ({ movieId }) => {
   const [detailedMovieData, fetchLoading, fetchError] = useMovieFetch(movieId);
   const { results } = detailedMovieData;
+
+  useEffect(() => {
+    jumpToTop();
+  }, []);
 
   return (
     <>
@@ -21,7 +33,7 @@ const MoviesDetail = ({ movieId }) => {
             height: "100vh",
           }}
         >
-          <h1>Occoreu um erro</h1>
+          <h1>Ocorreu um erro</h1>
         </div>
       ) : (
         <>
@@ -44,6 +56,7 @@ const MoviesDetail = ({ movieId }) => {
               )}
               <MoviesCast detailedMovieData={detailedMovieData} />
               <MoviesPosters detailedMovieData={detailedMovieData} />
+              <MoviesSimilar detailedMovieData={detailedMovieData} />
             </>
           )}
         </>
@@ -52,4 +65,4 @@ const MoviesDetail = ({ movieId }) => {
   );
 };
 
-export default MoviesDetail;
+export default MoviesDetailPage;

@@ -32,6 +32,7 @@ export const MovieInfoWrapper = styled.div`
   right: 0;
   left: 0;
   background: rgb(0 0 0 / 80%);
+  border-radius: var(--radius);
 
   @media (max-width: 990px) {
     flex-direction: column;
@@ -45,11 +46,11 @@ export const MovieInfoWrapper = styled.div`
 
 export const MovieInfoPoster = styled.div`
   flex: 1;
+  padding: 5px;
+  padding-bottom: 0;
 
   .poster {
-    width: 100%;
     min-width: 400px;
-    height: -webkit-fill-available;
 
     @media (max-width: 990px) {
       display: none;
@@ -153,7 +154,7 @@ export const MovieTrailerGrid = styled.div`
 
 // CAST COMPONENT
 export const MovieHeaderTitle = styled.h1`
-  margin-top: 5%;
+  margin: 5% 0 10px;
   text-transform: uppercase;
   color: var(--red);
   font-weight: 500;
@@ -162,15 +163,18 @@ export const MovieHeaderTitle = styled.h1`
 
 export const CastGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 10px;
 
   > .cast__wrapper {
     background-color: var(--dark);
     color: var(--light);
+    border-radius: var(--radius);
 
     > img {
       width: 100%;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
     }
 
     > div {
@@ -190,32 +194,24 @@ export const CastGrid = styled.div`
     }
   }
 
-  @media (max-width: 1390px) {
-    grid-template-columns: repeat(7, 1fr);
-  }
-
-  @media (max-width: 1220px) {
-    grid-template-columns: repeat(6, 1fr);
+  @media (max-width: 1274px) {
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
   }
 
-  @media (max-width: 970px) {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  @media (max-width: 770px) {
+  @media (max-width: 990px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: 824px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 570px) {
+  @media (max-width: 674px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 474px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
@@ -228,6 +224,7 @@ export const MoviePosterGrid = styled.div`
 
   > img {
     width: 100%;
+    border-radius: var(--radius);
   }
 
   @media (max-width: 920px) {

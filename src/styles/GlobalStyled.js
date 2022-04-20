@@ -10,6 +10,7 @@ export const GlobalStyled = createGlobalStyle`
    line-height: 1.2;
    margin: 0;
    padding: 0;  
+  
  }
 
  
@@ -28,6 +29,8 @@ export const GlobalStyled = createGlobalStyle`
 
   body { 
     box-sizing: border-box;
+    min-height:90vh ;
+ 
 
   .fade-in {
       -webkit-animation: fade-in 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
@@ -55,7 +58,7 @@ export const GlobalStyled = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  padding: 0 3%;
+  padding: 0 5%;
   position: relative;
   margin-bottom: 2%;
 `;
@@ -84,21 +87,36 @@ export const MainButton = styled.div`
     padding: 8px 35px;
     cursor: pointer;
     outline: none;
+    border-radius: var(--radius);
   }
 `;
 
 export const MoviesFooterWrapper = styled.div`
   background-color: var(--dark);
   min-height: 8vh;
+  position: relative;
 
-  div {
+  h6 {
     color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px 0;
+
+    > .material-icons {
+      font-size: 18px;
+      color: var(--red);
+      padding: 0 5px;
+    }
   }
 
   > span {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    width: 100%;
     color: var(--gray);
+    position: absolute;
+    bottom: 0;
   }
 `;

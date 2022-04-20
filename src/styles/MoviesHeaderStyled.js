@@ -14,7 +14,7 @@ export const MoviesHeaderContent = styled.div`
   min-height: 7vh;
 
   @media (max-width: 720px) {
-    width: calc(100% - 30px);
+    width: calc(100% - 50px);
   }
 
   div a {
@@ -35,27 +35,5 @@ export const MoviesHeaderContent = styled.div`
     h4 {
       color: var(--red);
     }
-  }
-`;
-
-export const StyledRMDBLogo = styled.img`
-  width: 250px;
-  margin-top: 20px;
-
-  @media screen and (max-width: 500px) {
-    width: 150px;
-    margin-top: 5px;
-  }
-`;
-
-export const StyledTMDBLogo = styled.img`
-  width: 122px;
-  margin-top: 25px;
-  float: right;
-
-  @media screen and (max-width: 500px) {
-    display: inline-block;
-    width: 80px;
-    margin-top: 0px;
   }
 `;

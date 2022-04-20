@@ -26,17 +26,12 @@ export const useMovieFetch = (movieId) => {
       const movieSimilar = `${apiURL}movie/${movieId}/similar?api_key=${apiKey}`;
       const movieSimilarResult = await (await fetch(movieSimilar)).json();
 
-      //   console.log(movieDetailResult, "DETAIL");
-      //   console.log(movieCreditsResult, "CREDITS");
-      //   console.log(movieVideosResult, "VIDEOS");
-      //   console.log(movieImagesResult, "IMAGES");
-      //   console.log(movieSimilarResult, "SIMILAR");
       setDetailedMovieData({
         ...movieDetailResult,
         ...movieCreditsResult,
         ...movieVideosResult,
         ...movieImagesResult,
-        // ...movieSimilarResult,
+        movieSimilarResult,
       });
     } catch (err) {
       console.log(err);

@@ -7,9 +7,10 @@ const MoviesFooter = () => {
   return (
     <MoviesFooterWrapper>
       <>
-        <div>
-          <h5>Footer</h5>
-        </div>
+        <h6>
+          Made with <span class="material-icons">favorite</span> by Giovane
+          Pereira
+        </h6>
         <span>
           <small>&copy; All Rights Reserved | StreamFlix {footerDate} </small>
         </span>

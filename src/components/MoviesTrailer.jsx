@@ -7,7 +7,6 @@ import {
 
 const MoviesTrailer = ({ detailedMovieData }) => {
   const { results } = detailedMovieData;
-
   const trailers = results.length > 5 ? results.slice(0, 5) : results;
 
   return (

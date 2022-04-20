@@ -32,14 +32,18 @@ const MoviesCast = ({ detailedMovieData }) => {
                 />
                 <div>
                   <p>{item.name}</p>
-                  <small>"{item.character}"</small>
+                  {item.character && <small>"{item.character}"</small>}
                 </div>
               </div>
             ))}
           </CastGrid>
           {cast.slice(0, visibleCast).length < cast.length ? (
             <MainButton>
-              <button type="button" title="Mostar mais" onClick={handleLoad}>
+              <button
+                type="button"
+                title="Mostar mais conteúdo"
+                onClick={handleLoad}
+              >
                 Mostrar mais
               </button>
             </MainButton>
@@ -62,14 +66,18 @@ const MoviesCast = ({ detailedMovieData }) => {
                 />
                 <div>
                   <p>{item.name}</p>
-                  <small>({item.job})</small>
+                  {item.job && <small>({item.job})</small>}
                 </div>
               </div>
             ))}
           </CastGrid>
           {crew.slice(0, visibleCast).length < crew.length ? (
             <MainButton>
-              <button type="button" title="Mostar mais" onClick={handleLoad}>
+              <button
+                type="button"
+                title="Mostar mais conteúdo"
+                onClick={handleLoad}
+              >
                 Mostrar mais
               </button>
             </MainButton>

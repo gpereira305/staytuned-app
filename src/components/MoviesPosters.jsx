@@ -11,8 +11,6 @@ const MoviesPosters = ({ detailedMovieData }) => {
   const [visiblePoster, setVisiblePoster] = useState(6);
   const { posters, backdrops } = detailedMovieData;
 
-  console.log(backdrops, posters);
-
   const handleLoad = () => {
     setVisiblePoster((prevCast) => prevCast + 6);
   };
@@ -40,7 +38,11 @@ const MoviesPosters = ({ detailedMovieData }) => {
         {[...backdrops, ...posters].slice(0, visiblePoster).length <
         [...backdrops, ...posters].length ? (
           <MainButton>
-            <button type="button" title="Mostar mais" onClick={handleLoad}>
+            <button
+              type="button"
+              title="Mostar mais conteúdo"
+              onClick={handleLoad}
+            >
               Mostrar mais
             </button>
           </MainButton>

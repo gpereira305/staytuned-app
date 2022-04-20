@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MoviesHero from "../components/MoviesHero";
 import MoviesSearchBar from "../components/MoviesSearchBar";
 import MoviesGrid from "../components/MoviesGrid";
@@ -7,7 +7,7 @@ import MoviesSpinner from "../components/MoviesSpinner";
 import MoviesLoadMoreButton from "../components/MoviesLoadMoreButton";
 import { useHomeFetch } from "../customHooks/useHomeFetch";
 import { useHeroFetch } from "../customHooks/useHeroFetch";
-import { Container, NoResult } from "../styles/GlobalStyled";
+import { Container } from "../styles/GlobalStyled";
 import no_image from "../assets/images/no_image.jpg";
 import {
   posterW500,
@@ -17,12 +17,20 @@ import {
 } from "../utils/config";
 import { MoviesGridItem } from "../styles/MoviesHomePageStyled";
 
+// função para a página renderizar no topo
+const jumpToTop = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
+
 const MoviesHomepage = () => {
   const [{ popMovies, popLoading, popError }, fetchPopMovies] = useHomeFetch();
   const [{ playingMovies, playingLoading, playingError }, fetchPlayingMovies] =
     useHeroFetch();
   const [searchTerm, setSearchTerm] = useState("");
 
+  // função de pesquisa por termo digitado no search field
   const searchTermResults = (search) => {
     const endpoint = search ? searchBaseURL + search : popularMoviesURL;
     setSearchTerm(search);
@@ -31,16 +39,20 @@ const MoviesHomepage = () => {
 
   //  função para carregar mais filmes se houver pais páginas
   const handleLoadMoreMovies = () => {
+    const allPopMovies = `${popularMoviesURL}&page=${
+      popMovies.currentPage + 1
+    }`;
     const searchMovies = `${searchBaseURL}${searchTerm}&page=${
       popMovies.currentPage + 1
     }`;
-    const popularMovies = `${popularMoviesURL}&page=${
-      popMovies.currentPage + 1
-    }`;
 
-    const endPoint = searchTerm ? searchMovies : popularMovies;
+    const endPoint = searchTerm ? searchMovies : allPopMovies;
     fetchPopMovies(endPoint);
   };
+
+  useEffect(() => {
+    jumpToTop();
+  }, []);
 
   return (
     <>
@@ -54,43 +66,67 @@ const MoviesHomepage = () => {
       <MoviesSearchBar callback={searchTermResults} />
 
       <Container>
-        {popMovies.popMovies?.length > 0 ? (
-          <>
-            <MoviesGrid
-              header={searchTerm ? "Resultado da pesquisa" : "Filmes populares"}
+        <>
+          {!popMovies.popMovies && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+              }}
             >
-              <MoviesGridItem>
-                {popMovies.popMovies?.map((item, i) => (
-                  <MoviesThumbnail
-                    key={i}
-                    clickable
-                    movieImage={
-                      item.poster_path
-                        ? `${imageBaseURL}${posterW500}${item?.poster_path}`
-                        : no_image
-                    }
-                    movieId={item.id}
-                    movieName={item?.original_title}
-                    movieRating={item?.vote_average}
-                    movieDate={item?.release_date}
-                  />
-                ))}
-              </MoviesGridItem>
-            </MoviesGrid>
+              <MoviesSpinner />
+            </div>
+          )}
+          {popMovies.popMovies?.length > 0 ? (
+            <>
+              <MoviesGrid
+                header={
+                  searchTerm ? "Resultado da pesquisa" : "Filmes populares"
+                }
+              >
+                <MoviesGridItem>
+                  {popMovies.popMovies?.map((item, i) => (
+                    <MoviesThumbnail
+                      key={i}
+                      clickable
+                      movieImage={
+                        item.poster_path
+                          ? `${imageBaseURL}${posterW500}${item?.poster_path}`
+                          : no_image
+                      }
+                      movieId={item.id}
+                      movieName={item?.original_title}
+                      movieRating={item?.vote_average}
+                      movieDate={item?.release_date}
+                    />
+                  ))}
+                </MoviesGridItem>
+              </MoviesGrid>
 
-            {popLoading && <MoviesSpinner />}
-            {popMovies?.currentPage < popMovies?.totalPages && !popLoading && (
-              <MoviesLoadMoreButton
-                text={"Carregar mais"}
-                callback={handleLoadMoreMovies}
-              />
-            )}
-          </>
-        ) : (
-          <NoResult>
-            <h2>Nenhum resultado encontrado</h2>
-          </NoResult>
-        )}
+              {popLoading && <MoviesSpinner />}
+              {popMovies?.currentPage < popMovies?.totalPages &&
+                !popLoading && (
+                  <MoviesLoadMoreButton
+                    text={"Carregar mais"}
+                    callback={handleLoadMoreMovies}
+                  />
+                )}
+            </>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "90vh",
+              }}
+            >
+              <MoviesSpinner />
+            </div>
+          )}
+        </>
       </Container>
     </>
   );

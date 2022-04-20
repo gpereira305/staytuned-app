@@ -8,6 +8,7 @@ const LoadButton = styled.button`
   padding: 8px 35px;
   cursor: pointer;
   outline: none;
+  border-radius: var(--radius);
 `;
 
 const MoviesLoadMoreButton = ({ text, callback }) => {
@@ -17,10 +18,12 @@ const MoviesLoadMoreButton = ({ text, callback }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "15vh",
+        minHeight: "10vh",
       }}
     >
-      <LoadButton onClick={callback}>{text}</LoadButton>
+      <LoadButton onClick={callback} title="Mostrar mais conteúdo">
+        {text}
+      </LoadButton>
     </div>
   );
 };

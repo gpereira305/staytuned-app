@@ -83,6 +83,7 @@ export const MovieHeroSlideContent = styled.div`
     img {
       max-width: 80%;
       min-width: 400px;
+      border-radius: var(--radius);
 
       @media (max-width: 1090px) {
         display: none;
@@ -93,9 +94,6 @@ export const MovieHeroSlideContent = styled.div`
 
 export const MoviesGridWrapper = styled.div`
   > div {
-    display: flex;
-    align-items: center;
-
     h2 {
       margin: 3% 0 15px;
     }
@@ -105,7 +103,7 @@ export const MoviesGridWrapper = styled.div`
 export const MoviesGridItem = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
+  grid-gap: 15px;
 
   @media (max-width: 1524px) {
     grid-template-columns: repeat(5, 1fr);
@@ -117,7 +115,6 @@ export const MoviesGridItem = styled.div`
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
   }
 
   @media (max-width: 790px) {
@@ -157,6 +154,7 @@ export const MoviesGridImage = styled.div`
     img {
       width: 100%;
       height: 46vh;
+      border-radius: var(--radius);
 
       @media (max-width: 790px) {
         height: auto;

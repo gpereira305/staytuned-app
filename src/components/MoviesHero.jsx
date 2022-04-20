@@ -10,7 +10,6 @@ import no_image from "../assets/images/no_image.jpg";
 import { banner, imageBaseURL } from "../utils/config";
 import MoviesSpinner from "./MoviesSpinner";
 import { Link } from "@reach/router";
-import { NoResult } from "../styles/GlobalStyled";
 import {
   MovieHeroSlide,
   MovieHeroSlideContent,
@@ -20,11 +19,6 @@ import {
 const MoviesHero = ({ playingMovies, playingLoading, playingError }) => {
   return (
     <div className="fade-in">
-      {playingError && (
-        <NoResult>
-          <h2>Algo de errado aconteceu!</h2>
-        </NoResult>
-      )}
       {!playingMovies ? (
         <MoviesSpinner />
       ) : (
