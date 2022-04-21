@@ -1,13 +1,11 @@
 import React from "react";
-import { convertMoney, formatDate } from "../utils/helpers";
+import { calcTime, convertMoney, formatDate } from "../utils/helpers";
 import {
   MovieInfoDetailsText,
   MovieInfoDetailsTextWrapper,
   MovieInfoDetailsH4,
   MovieInfoDetailsOverview,
 } from "../styles/MoviesDetailStyled.js";
-
-// import no_image from "../assets/images/no_image.jpg";
 
 const MoviesInfoDetail = ({ detailedMovieData }) => {
   const {
@@ -71,17 +69,16 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
           </span>
         </MovieInfoDetailsH4>
         <MovieInfoDetailsH4>
-          Duração: <span>{`${runtime} min` || "???"}</span>
+          Duração: <span>{`${calcTime(runtime)}` || "???"}</span>
         </MovieInfoDetailsH4>
         <MovieInfoDetailsH4>
-          Gêneros: <span>{getEachItem(genres)?.join(", ") || "???"}</span>
+          Gênero: <span>{getEachItem(genres)?.join(", ") || "???"}</span>
         </MovieInfoDetailsH4>
         <MovieInfoDetailsH4>
           {spoken_languages.length > 1 ? "Idiomas:" : "Idioma:"}{" "}
           <span>{getEachLang(spoken_languages)?.join(", ") || "???"}</span>
         </MovieInfoDetailsH4>
         <MovieInfoDetailsH4>
-          {console.log(vote_average)}
           Nota IMDb:{" "}
           <span style={{ color: vote_average < 6 ? "#bd8302" : "#099f0f" }}>
             {vote_average || "???"}

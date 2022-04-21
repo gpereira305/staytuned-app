@@ -9,6 +9,7 @@ import { useHomeFetch } from "../customHooks/useHomeFetch";
 import { useHeroFetch } from "../customHooks/useHeroFetch";
 import { Container } from "../styles/GlobalStyled";
 import no_image from "../assets/images/no_image.jpg";
+import { Helmet } from "react-helmet";
 import {
   posterW500,
   imageBaseURL,
@@ -25,10 +26,9 @@ const jumpToTop = () => {
 };
 
 const MoviesHomepage = () => {
-  const [{ popMovies, popLoading, popError }, fetchPopMovies] = useHomeFetch();
-  const [{ playingMovies, playingLoading, playingError }, fetchPlayingMovies] =
-    useHeroFetch();
   const [searchTerm, setSearchTerm] = useState("");
+  const [{ popMovies, popLoading }, fetchPopMovies] = useHomeFetch(searchTerm);
+  const [{ playingMovies, playingLoading, playingError }] = useHeroFetch();
 
   // função de pesquisa por termo digitado no search field
   const searchTermResults = (search) => {
@@ -56,6 +56,9 @@ const MoviesHomepage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>StayTuned | Home</title>
+      </Helmet>
       {!searchTerm && (
         <MoviesHero
           playingMovies={playingMovies}

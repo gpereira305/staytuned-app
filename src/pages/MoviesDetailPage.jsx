@@ -6,6 +6,7 @@ import { useMovieFetch } from "../customHooks/useMoviesFetch";
 import MoviesTrailer from "../components/MoviesTrailer";
 import MoviesPosters from "../components/MoviesPosters";
 import MoviesSimilar from "../components/MoviesSimilar";
+import { Helmet } from "react-helmet";
 
 // função para a página renderizar no topo
 const jumpToTop = () => {
@@ -24,6 +25,9 @@ const MoviesDetailPage = ({ movieId }) => {
 
   return (
     <>
+      <Helmet>
+        <title>StayTuned | Detalhes</title>
+      </Helmet>
       {fetchError ? (
         <div
           style={{

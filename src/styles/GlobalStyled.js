@@ -18,7 +18,8 @@ export const GlobalStyled = createGlobalStyle`
 :root {
    --white:#fff; 
    --light: #cdcdcd;
-   --red: #b90000;
+   /* --red: #b90000; */
+   --red:#E50914;
    --gray: #8d8d8d;
    --dark: #000;
    --light_dark: rgb(102 102 102);
@@ -29,7 +30,8 @@ export const GlobalStyled = createGlobalStyle`
 
   body { 
     box-sizing: border-box;
-    min-height:90vh ;
+    min-height: 90vh;
+    background: rgb(0 5 8); 
  
 
   .fade-in {
@@ -95,18 +97,36 @@ export const MoviesFooterWrapper = styled.div`
   background-color: var(--dark);
   min-height: 8vh;
   position: relative;
+  padding-top: 15px;
 
-  h6 {
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 20px 0;
+  div {
+    text-align: center;
+    margin-bottom: 10px;
 
-    > .material-icons {
-      font-size: 18px;
-      color: var(--red);
-      padding: 0 5px;
+    h6 {
+      color: var(--white);
+      text-transform: uppercase;
+
+      > .material-icons {
+        font-size: 18px;
+        color: var(--red);
+        padding: 0 5px;
+      }
+    }
+
+    .social__links {
+      width: 130px;
+      margin: auto;
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 5px;
+      a {
+        color: var(--gray);
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
     }
   }
 
@@ -116,7 +136,8 @@ export const MoviesFooterWrapper = styled.div`
     align-items: flex-end;
     width: 100%;
     color: var(--gray);
-    position: absolute;
-    bottom: 0;
+    font-size: 0.85rem;
+    /* position: absolute;
+    bottom: 0; */
   }
 `;

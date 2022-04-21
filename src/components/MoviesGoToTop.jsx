@@ -51,7 +51,7 @@ const MoviesGoToTop = () => {
         title="Voltar ao topo da página"
         style={{ display: visible ? "inline" : "none" }}
       >
-        keyboard_double_arrow_up
+        arrow_upward
       </span>
     </ScrollTop>
   );

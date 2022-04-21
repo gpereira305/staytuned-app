@@ -12,12 +12,22 @@ const MoviesHeader = () => {
         <div>
           <Link to="/" title="Logo | Home">
             <span className="material-icons">ondemand_video</span>
-            <h2>StreamFlix</h2>
+            <h2>StayTuned</h2>
           </Link>
         </div>
 
         <div className="about">
-          <Link to="/about">
+          <div>
+            <a
+              href="https://www.themoviedb.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Visitar site TMDb"
+            >
+              Site TMDb
+            </a>
+          </div>
+          <Link to="/about" title="Sobre o app">
             <h4>Sobre o app</h4>
           </Link>
         </div>

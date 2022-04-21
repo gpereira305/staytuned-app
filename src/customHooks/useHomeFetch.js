@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { popularMoviesURL } from "../utils/config";
 
-export const useHomeFetch = () => {
+export const useHomeFetch = (searchTerm) => {
   const [popMovies, setPopMovies] = useState([]);
   const [popLoading, setPopLoading] = useState(true);
   const [popError, setPopError] = useState(false);
@@ -32,8 +32,19 @@ export const useHomeFetch = () => {
   };
 
   useEffect(() => {
-    fetchPopMovies(popularMoviesURL);
+    if (sessionStorage.homeState) {
+      setPopMovies(JSON.parse(sessionStorage.homeState));
+      setPopLoading(false);
+    } else {
+      fetchPopMovies(popularMoviesURL);
+    }
   }, []);
+
+  useEffect(() => {
+    if (!searchTerm) {
+      sessionStorage.setItem("homeState", JSON.stringify(popMovies));
+    }
+  }, [searchTerm, popMovies]);
 
   return [
     {

@@ -1,5 +1,5 @@
 {
-  "name": "StreamFlix",
+  "name": "StayTuned",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-fontawesome": "^1.6.1",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^5.0.0",
     "styled-components": "^4.4.1",

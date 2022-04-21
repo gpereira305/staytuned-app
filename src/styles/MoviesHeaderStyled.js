@@ -21,17 +21,27 @@ export const MoviesHeaderContent = styled.div`
     display: flex;
     align-items: center;
     color: var(--red);
+    text-transform: uppercase;
+    font-size: 0.8rem;
 
     .material-icons {
       margin-right: 5px;
     }
 
     @media (max-width: 420px) {
-      font-size: 0.8rem;
+      font-size: 0.6rem;
     }
   }
 
   .about {
+    display: flex;
+    min-width: 190px;
+    justify-content: space-between;
+
+    @media (max-width: 420px) {
+      min-width: 150px;
+    }
+
     h4 {
       color: var(--red);
     }
