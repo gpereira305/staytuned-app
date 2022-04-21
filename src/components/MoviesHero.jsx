@@ -24,7 +24,7 @@ const MoviesHero = ({ playingMovies, playingLoading, playingError }) => {
       ) : (
         <Swiper
           modules={[Autoplay, Pagination, Navigation, EffectFade, Parallax]}
-          // autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 5000 }}
           loop={true}
           speed={2500}
           grabCursor={true}

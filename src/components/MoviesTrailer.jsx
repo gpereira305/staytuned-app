@@ -26,8 +26,8 @@ const MoviesTrailer = ({ detailedMovieData }) => {
 const Trailer = ({ trailer }) => {
   return (
     <iframe
-      width={"348"}
-      height={"190"}
+      width={"334"}
+      height={"200"}
       src={`https://www.youtube.com/embed/${trailer.key}`}
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
