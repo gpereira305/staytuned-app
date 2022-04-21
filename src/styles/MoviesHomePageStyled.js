@@ -79,13 +79,18 @@ export const MovieHeroSlideContent = styled.div`
 
   a {
     flex: 1;
+    text-align-last: end;
 
     img {
       max-width: 80%;
       min-width: 400px;
       border-radius: var(--radius);
 
-      @media (max-width: 1090px) {
+      @media (max-width: 990px) {
+        min-width: 300px;
+      }
+
+      @media (max-width: 790px) {
         display: none;
       }
     }
@@ -175,7 +180,6 @@ export const MoviesGridInfo = styled.div`
   color: var(--light);
   z-index: 10;
   top: 0;
-  height: 46vh;
   opacity: 0;
   background-color: rgba(3, 3, 3, 0.7);
   transition: all ease-in-out 0.4s;
@@ -183,6 +187,10 @@ export const MoviesGridInfo = styled.div`
   -moz-transition: all ease-in-out 0.4s;
   -ms-transition: all ease-in-out 0.4s;
   -o-transition: all ease-in-out 0.4s;
+
+  @media (max-width: 490px) {
+    display: none;
+  }
 
   p {
     text-transform: uppercase;
