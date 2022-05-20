@@ -50,13 +50,12 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 - Resultado de pesquisa
 <img src="./src/assets/screen-shots/home-page2.png" />
 - Página de detalhes
-<img src="./src/assets/screen-shots/home-page4.png" />
-- Resultado de pesquisa
-<img src="./src/assets/screen-shots/details-page.png" />
-- Resultado de pesquisa
-<img src="./src/assets/screen-shots/details-page2.png" />
-- Resultado de pesquisa
+ <img src="./src/assets/screen-shots/details-page.png" />
+ 
+<img src="./src/assets/screen-shots/home-page4.png" /> 
+<img src="./src/assets/screen-shots/details-page2.png" /> 
 <img src="./src/assets/screen-shots/details-page3.png" />
+
 - Versão mobile
 <img src="./src/assets/screen-shots/mobile.png" />
  
