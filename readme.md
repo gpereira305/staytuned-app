@@ -2,7 +2,7 @@
 
 <img src="./src/assets/screen-shots/home-page.png" />
 
-## **O propósito do o projeto**
+## **O propósito do projeto**
 
 O principal propósito dessa aplicação é dar a possibilidade ao usuário de pesquisar por um título de um filme e obter
 toda as informações disponíves para consulta.
