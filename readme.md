@@ -45,14 +45,11 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 
 <hr>
 
+## **Screenshots**
 <img src="./src/assets/screen-shots/home-page2.png" />
 <img src="./src/assets/screen-shots/home-page4.png" />
 <img src="./src/assets/screen-shots/details-page.png" />
 <img src="./src/assets/screen-shots/details-page2.png" />
 <img src="./src/assets/screen-shots/details-page3.png" />
 <img src="./src/assets/screen-shots/mobile.png" />
-<hr>
-
-<hr>
-
-Copyright (c) 2022 - 2022, One Blue.io
+ 
