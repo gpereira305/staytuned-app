@@ -49,6 +49,7 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 ## **Screenshots**
 - Resultado de pesquisa
 <img src="./src/assets/screen-shots/home-page2.png" />
+
 - Página de detalhes
  <img src="./src/assets/screen-shots/details-page.png" />
  
