@@ -4,6 +4,7 @@ const imageBaseURL = "http://image.tmdb.org/t/p/";
 const banner = "w1280";
 const posterW500 = "w500";
 
+// movies
 const searchBaseURL = `${apiURL}search/movie?api_key=${apiKey}&query=`;
 const nowPlayingURL = `${apiURL}movie/now_playing?api_key=${apiKey}`;
 const popularMoviesURL = `${apiURL}movie/popular?api_key=${apiKey}`;

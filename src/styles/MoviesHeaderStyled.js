@@ -35,7 +35,7 @@ export const MoviesHeaderContent = styled.div`
 
   .about {
     display: flex;
-    min-width: 190px;
+    min-width: 285px;
     justify-content: space-between;
 
     @media (max-width: 420px) {
