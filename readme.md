@@ -1,7 +1,5 @@
 # **Stay Tuned Movie app - React JS**
-
-- Homepage
-<img src="./src/assets/screen-shots/home-page.png" />
+ <hr>
 
 ## **O propósito do projeto**
 
@@ -47,7 +45,10 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 <hr>
 
 ## **Screenshots**
-- Resultado de pesquisa
+- Homepage
+<img src="./src/assets/screen-shots/home-page.png" />
+
+- Resultado de pesquisa 
 <img src="./src/assets/screen-shots/home-page2.png" />
 
 - Página de detalhes
