@@ -15,7 +15,6 @@ imagem do elenco, produção, posters e filmes similares.
 
 Na página inicial contém o carrosel onde é mostrado os filmes que estreiam no cinema durante o mês e logo abaixo está o campo de pesquisa como também todos os filmes mais populares.
 O usúario pode clicar em qualquer cartaz para ser redirecionado para a página de detalhes ou digitar um termo para pesquisar um filme específico.
-
 <hr>
 
 ## **Tecnologias usadas**
@@ -27,10 +26,9 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 - <a href="https://fontawesome.com/start">Fontawesome</a>
 - <a href="https://styled-components.com/">Styled-components</a>
 - <a href="https://swiperjs.com/">Swiper JS</a>
-
+- <a href="https://www.netlify.com/">Netlify</a>
 <hr>
-
-<hr>
+ 
 
 ## **Como instalar em ambiente local**
 
@@ -43,8 +41,8 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 - Caso o navegado não inciar, digite o seguinte comando "http://localhost:3000" em uma nova aba.
 <hr>
 
-## **Como instalar em ambiente local**
-Visite aplicação online aqui https://staytuned.netlify.app
+## **Esta aplicação está hospedada no Netlify**
+Visite aplicação online aqui: https://staytuned.netlify.app
 <hr>
 
 ## **Screenshots**
