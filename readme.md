@@ -42,7 +42,8 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 <hr>
 
 ## **Esta aplicação está hospedada no Netlify**
-Visite aplicação online aqui: https://staytuned.netlify.app
+- Visite aplicação online aqui: https://staytuned.netlify.app
+
 <hr>
 
 ## **Screenshots**
