@@ -41,7 +41,10 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 - Após o término de todas as depedências serem baixadas pelo npm digite no mesmo diretório o comando "npm start".
 - O seu navegador padrão irá mostrar uma nova aba com o projeto já pronto para ser usado
 - Caso o navegado não inciar, digite o seguinte comando "http://localhost:3000" em uma nova aba.
+<hr>
 
+## **Como instalar em ambiente local**
+Visite aplicação online aqui https://staytuned.netlify.app
 <hr>
 
 ## **Screenshots**
