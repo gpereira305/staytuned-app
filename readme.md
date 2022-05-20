@@ -48,7 +48,7 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 - Homepage
 <img src="./src/assets/screen-shots/home-page.png" />
 
-- Resultado de pesquisa 
+- Resultado de uma pesquisa 
 <img src="./src/assets/screen-shots/home-page2.png" />
 
 - Página de detalhes
