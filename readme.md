@@ -58,6 +58,7 @@ O usúario pode clicar em qualquer cartaz para ser redirecionado para a página 
 <img src="./src/assets/screen-shots/details-page2.png" /> 
 <img src="./src/assets/screen-shots/details-page3.png" />
 
+- Filmes similares
 <img src="./src/assets/screen-shots/home-page4.png" /> 
 
 - Versão mobile
