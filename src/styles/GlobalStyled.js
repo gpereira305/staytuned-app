@@ -9,30 +9,32 @@ export const GlobalStyled = createGlobalStyle`
    font-weight: 400;
    line-height: 1.2;
    margin: 0;
-   padding: 0;  
-  
+   padding: 0;
+
  }
 
- 
+
 
 :root {
-   --white:#fff; 
+   --white:#fff;
    --light: #cdcdcd;
    /* --red: #b90000; */
    --red:#E50914;
    --gray: #8d8d8d;
    --dark: #000;
    --light_dark: rgb(102 102 102);
-   --golden: #ffb600;  
+   --golden: #ffb600;
    --transition: all ease .3s;
    --radius: 3px;
  }
 
-  body { 
+  body {
     box-sizing: border-box;
     min-height: 90vh;
-    background: rgb(0 5 8); 
- 
+    background: rgb(0 5 8);
+    overflow-x: hidden;
+  }
+
 
   .fade-in {
       -webkit-animation: fade-in 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
@@ -56,13 +58,18 @@ export const GlobalStyled = createGlobalStyle`
       opacity: 1;
     }
    }
-  }
 `;
 
-export const Container = styled.div`
-  padding: 0 5%;
-  position: relative;
-  margin-bottom: 2%;
+export const Container = styled.section`
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    @media (max-width: 1200px ) {
+        max-width: 992px;
+        padding: 0 20px;
+        width: auto;
+    }
 `;
 
 export const NoResult = styled.div`
@@ -93,7 +100,7 @@ export const MainButton = styled.div`
   }
 `;
 
-export const MoviesFooterWrapper = styled.div`
+export const MoviesFooterWrapper = styled.footer`
   background-color: var(--dark);
   min-height: 8vh;
   position: relative;
@@ -137,7 +144,5 @@ export const MoviesFooterWrapper = styled.div`
     width: 100%;
     color: var(--gray);
     font-size: 0.85rem;
-    /* position: absolute;
-    bottom: 0; */
   }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MovieHeroSlide = styled.section`
+export const MovieHeroSlide = styled.figure`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,7 +9,7 @@ export const MovieHeroSlide = styled.section`
 export const MovieHeroSlideItem = styled.div`
   width: 100%;
   position: relative;
-  min-height: 100vh;
+  min-height: 824px;
 
   &::before {
     content: "";
@@ -43,20 +43,26 @@ export const MovieHeroSlideContent = styled.div`
   justify-content: center;
   align-items: flex-end;
   position: absolute;
-  width: 85%;
+  width:100%;
+  max-width: 1200px;
   right: 0;
   left: 0;
-  top: 7%;
+  top: 15%;
   margin: auto;
 
+  @media (max-width: 1200px) {
+    max-width: none;
+    width: auto;
+    padding: 0 20px;
+  }
   @media (max-width: 1090px) {
     bottom: 10%;
     align-items: center;
   }
 
-  > div {
+  section {
     padding-right: 5%;
-    padding-bottom: 10px;
+    padding-bottom: 10%;
     flex: 2;
 
     @media (max-width: 1090px) {
@@ -74,6 +80,11 @@ export const MovieHeroSlideContent = styled.div`
       color: var(--light);
       font-weight: 300;
       font-size: 0.95rem;
+      line-height: 25px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 10;
     }
   }
 
@@ -84,37 +95,34 @@ export const MovieHeroSlideContent = styled.div`
     img {
       max-width: 80%;
       min-width: 400px;
-      border-radius: var(--radius);
 
       @media (max-width: 990px) {
         min-width: 300px;
       }
 
-      @media (max-width: 790px) {
-        display: none;
-      }
     }
-  }
-`;
-
-export const MoviesGridWrapper = styled.div`
-  > div {
-    h2 {
-      margin: 3% 0 15px;
+    @media (max-width: 790px) {
+      display: none;
     }
   }
 `;
 
 export const MoviesGridItem = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin-top: 30px;
 
-  @media (max-width: 1524px) {
-    grid-template-columns: repeat(5, 1fr);
+  @media (max-width: 1200px) {
+    grid-gap: 20px;
   }
-
-  @media (max-width: 1324px) {
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 470px) {
+    grid-template-columns: 1fr;
+  }
+  /* @media (max-width: 1324px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -128,14 +136,28 @@ export const MoviesGridItem = styled.div`
 
   @media (max-width: 420px) {
     grid-template-columns: repeat(1, 1fr);
-  }
+  } */
 `;
 
-export const MoviesGridImage = styled.div`
+export const MoviesGridImage = styled.figure`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  max-width: 390px;
+  min-height: 560px;
+
+  @media (max-width: 1200px) {
+    min-height: 450px;
+  }
+
+  @media (max-width: 992px) {
+      min-height: 350px;
+  }
+
+  @media (max-width: 470px) {
+    max-width: none;
+  }
 
   &:hover .info {
     opacity: 1;
@@ -156,10 +178,20 @@ export const MoviesGridImage = styled.div`
   }
 
   a {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: inherit;
+    min-height: inherit;
+
     img {
-      width: 100%;
-      height: 46vh;
-      border-radius: var(--radius);
+      display: block;
+      object-fit: cover;
+      width: inherit;
+      height: inherit;
+      max-width: inherit;
+      min-height: inherit;
+
 
       @media (max-width: 790px) {
         height: auto;

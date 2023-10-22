@@ -37,7 +37,7 @@ const MoviesHomepage = () => {
     fetchPopMovies(endpoint);
   };
 
-  //  função para carregar mais filmes se houver pais páginas
+  //  função para carregar mais filmes
   const handleLoadMoreMovies = () => {
     const allPopMovies = `${popularMoviesURL}&page=${
       popMovies.currentPage + 1
@@ -70,18 +70,6 @@ const MoviesHomepage = () => {
 
       <Container>
         <>
-          {!popMovies.popMovies && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-              }}
-            >
-              <MoviesSpinner />
-            </div>
-          )}
           {popMovies.popMovies?.length > 0 ? (
             <>
               <MoviesGrid

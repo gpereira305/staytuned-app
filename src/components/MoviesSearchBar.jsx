@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FormSearchMovies } from "../styles/MoviesSearchBarStyled";
 
 const MoviesSearchBar = ({ callback }) => {
-  // const [search, setSearch] = useState("");
   const [state, setState] = useState("");
 
   const handleSearch = (e) => {

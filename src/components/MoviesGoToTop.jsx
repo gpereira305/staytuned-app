@@ -3,22 +3,18 @@ import styled from "styled-components";
 
 const ScrollTop = styled.div`
   position: fixed;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
   bottom: 20%;
   right: 5%;
   z-index: 100;
-
-  span {
-    cursor: pointer;
-    font-size: 1.8rem;
-    color: var(--light);
-    border-radius: 50%;
-    padding: 8px;
-    background: var(--red);
-
-    @media (max-width: 570px) {
-      font-size: 1.4rem;
-    }
-  }
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--light);
+  border-radius: 100%;
+  background: var(--red);
 `;
 
 const MoviesGoToTop = () => {
@@ -44,16 +40,14 @@ const MoviesGoToTop = () => {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <ScrollTop>
-      <span
+      <ScrollTop
         className="material-icons slide-in-bottom"
         onClick={scrollTopPage}
         title="Voltar ao topo da página"
-        style={{ display: visible ? "inline" : "none" }}
+        style={{ display: visible ? "flex" : "none" }}
       >
         arrow_upward
-      </span>
-    </ScrollTop>
+      </ScrollTop>
   );
 };
 

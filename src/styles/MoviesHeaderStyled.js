@@ -1,23 +1,30 @@
 import styled from "styled-components";
 
-export const MoviesHeaderWrapper = styled.div`
+export const MoviesHeaderWrapper = styled.header`
+  position: fixed;
+  left: 0;
+  right: 0;
   width: 100%;
-  background-color: var(--dark);
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  transition: background-color linear 300ms;
 `;
 
 export const MoviesHeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 100px);
+  max-width: 1200px;
   margin: auto;
   align-items: center;
-  min-height: 7vh;
+  padding: 20px;
 
-  @media (max-width: 720px) {
-    width: calc(100% - 50px);
+  @media (max-width: 1200px) {
+    max-width: none;
   }
 
-  div a {
+
+  a {
     display: flex;
     align-items: center;
     color: var(--red);
@@ -28,18 +35,18 @@ export const MoviesHeaderContent = styled.div`
       margin-right: 5px;
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 570px) {
       font-size: 0.6rem;
     }
   }
 
   .about {
     display: flex;
-    min-width: 285px;
+    width: 200px;
     justify-content: space-between;
 
-    @media (max-width: 420px) {
-      min-width: 150px;
+     @media (max-width: 570px) {
+         width: 150px;
     }
 
     h4 {

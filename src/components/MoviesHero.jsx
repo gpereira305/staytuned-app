@@ -24,9 +24,9 @@ const MoviesHero = ({ playingMovies, playingLoading, playingError }) => {
       ) : (
         <Swiper
           modules={[Autoplay, Pagination, Navigation, EffectFade, Parallax]}
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 4500 }}
           loop={true}
-          speed={2500}
+          speed={1500}
           grabCursor={true}
           spaceBetween={0}
           slidesPerView={1}
@@ -47,20 +47,17 @@ const HeroSlideItem = (props) => {
 
   return (
     <MovieHeroSlide
-      style={{
-        backgroundImage: `url(${imageBaseURL}${banner}${item.backdrop_path})`,
-      }}
-    >
+      style={{backgroundImage: `url(${imageBaseURL}${banner}${item.backdrop_path})`}}>
       <MovieHeroSlideItem>
         <MovieHeroSlideContent>
-          <div className="hero__text">
+          <section className="hero__text">
             <h2>{item.title}</h2>
             <p>
               {item.overview.length > 300
                 ? `${item.overview.slice(0, 300)}...`
                 : item.overview || "???"}{" "}
             </p>
-          </div>
+          </section>
           <Link to={`/${item.id}`}>
             <img
               src={`${imageBaseURL}${banner}${item.poster_path}` || no_image}

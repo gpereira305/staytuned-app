@@ -1,25 +1,31 @@
 import styled from "styled-components";
 
-export const FormSearchMovies = styled.section`
+export const FormSearchMovies = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 15vh;
   margin: auto;
   width: 100%;
-  background-color: #000;
+  background-color: var(--dark);
+
+  @media (max-width: 576px) {
+    padding: 0 20px;
+    width: auto;
+  }
 
   div {
     position: relative;
     display: flex;
-    width: 40%;
-    min-width: 330px;
+    margin: auto;
+    width: 100%;
+    max-width: 576px;
   }
 
   input {
     border: none;
     outline: none;
-    border: 2px solid var(--light);
+        border: 2px solid rgb(205 205 205 / 45%);
     padding: 10px;
     font-size: 1rem;
     width: 100%;
@@ -31,7 +37,7 @@ export const FormSearchMovies = styled.section`
     }
 
     &::placeholder {
-      color: var(--light);
+      color: rgb(205 205 205 / 45%);
       font-style: italic;
     }
   }

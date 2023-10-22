@@ -13,15 +13,17 @@ const App = () => {
   return (
     <>
       <MoviesHeader />
-      <Router>
-        <MoviesHomePage path="/" />
-        <MoviesDetailPage path="/:movieId" />
-        <MoviesNotFound default />
-        <MoviesAbout path="/about" />
-      </Router>
+        <main>
+          <Router>
+            <MoviesHomePage path="/" />
+            <MoviesDetailPage path="/:movieId" />
+            <MoviesNotFound default />
+            <MoviesAbout path="/about" />
+          </Router>
+          <MoviesGoToTop />
+          <GlobalStyled />
+        </main>
       <MoviesFooter />
-      <MoviesGoToTop />
-      <GlobalStyled />
     </>
   );
 };
