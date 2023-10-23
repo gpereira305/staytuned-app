@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const MovieInfoSection = styled.section`
-  position: relative;
-`;
+
+
 
 export const MovieInfoBg = styled.div`
   background-size: cover;
@@ -26,31 +25,33 @@ export const MovieInfoBg = styled.div`
 export const MovieInfoWrapper = styled.div`
   display: flex;
   position: absolute;
-  width: calc(100% - 100px);
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
-  top: 8%;
+  top: 20%;
   right: 0;
   left: 0;
-  background: rgb(0 0 0 / 80%);
-  border-radius: var(--radius);
+  background: rgb(0 0 0 / 65%);
 
   @media (max-width: 990px) {
     flex-direction: column;
   }
-
   @media (max-width: 720px) {
     width: calc(100% - 50px);
     top: 2%;
   }
 `;
 
-export const MovieInfoPoster = styled.div`
+export const MovieInfoPoster = styled.figure`
   flex: 1;
   padding: 5px;
   padding-bottom: 0;
 
   .poster {
-    min-width: 400px;
+    width: inherit;
+    max-height: 550px;
+    object-fit: contain;
+    max-width: 450px;
 
     @media (max-width: 990px) {
       display: none;
@@ -58,9 +59,9 @@ export const MovieInfoPoster = styled.div`
   }
 `;
 
-export const MovieInfoDetailsText = styled.div`
+export const MovieInfoDetailsText = styled.article`
   flex: 3;
-  padding: 5px 15px 5px;
+  padding: 15px;
   color: var(--light);
 
   > div {
@@ -77,6 +78,7 @@ export const MovieInfoDetailsText = styled.div`
     }
 
     > small {
+      display: block;
       color: var(--red);
       font-size: 0.75rem;
       font-style: italic;
@@ -134,6 +136,10 @@ export const MovieInfoDetailsOverview = styled.div`
     font-weight: 400;
     font-style: italic;
     color: var(--gray);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
 
     @media (max-width: 720px) {
       font-size: 0.65rem;
@@ -142,7 +148,7 @@ export const MovieInfoDetailsOverview = styled.div`
 `;
 
 // TRAILER COMPONENT
-export const MovieTrailerGrid = styled.div`
+export const MovieTrailerGrid = styled.figure`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -153,7 +159,7 @@ export const MovieTrailerGrid = styled.div`
 `;
 
 // CAST COMPONENT
-export const MovieHeaderTitle = styled.h1`
+export const MovieHeaderTitle = styled.h3`
   margin: 5% 0 10px;
   text-transform: uppercase;
   color: var(--red);

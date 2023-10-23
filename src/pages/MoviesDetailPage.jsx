@@ -8,7 +8,6 @@ import MoviesPosters from "../components/MoviesPosters";
 import MoviesSimilar from "../components/MoviesSimilar";
 import { Helmet } from "react-helmet";
 
-// função para a página renderizar no topo
 const jumpToTop = () => {
   window.scrollTo({
     top: 0,
@@ -29,33 +28,29 @@ const MoviesDetailPage = ({ movieId }) => {
         <title>StayTuned | Detalhes</title>
       </Helmet>
       {fetchError ? (
-        <div
-          style={{
+        <div style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
-          }}
+            height: "100vh"}}
         >
           <h1>Ocorreu um erro</h1>
         </div>
       ) : (
         <>
           {fetchLoading ? (
-            <div
-              style={{
+            <div style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "100vh",
-              }}
+                height: "100vh"}}
             >
               <MoviesSpinner />
             </div>
           ) : (
             <>
               <MoviesInfo detailedMovieData={detailedMovieData} />
-              {results.length > 0 && (
+              {results && (
                 <MoviesTrailer detailedMovieData={detailedMovieData} />
               )}
               <MoviesCast detailedMovieData={detailedMovieData} />

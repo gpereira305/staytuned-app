@@ -28,13 +28,11 @@ const SimilarMovieWrapper = styled.div`
   .swiper-button-prev {
     color: var(--red);
   }
-
   @media (max-width: 990px) {
     .swiper-slide {
       width: 230px !important;
     }
   }
-
   @media (max-width: 490px) {
     .swiper-slide {
       width: 320px !important;
@@ -47,12 +45,18 @@ const SimilarMoviesImg = styled.img`
   position: relative;
 `;
 
+
+
+
+
+
+
 const MoviesSimilar = ({ detailedMovieData }) => {
   const { results } = detailedMovieData.movieSimilarResult;
 
   return (
     <Container className="fade-in">
-      <MovieHeaderTitle>Filmes Similares</MovieHeaderTitle>
+      {results.length && <MovieHeaderTitle>Filmes Similares</MovieHeaderTitle>}
       {!results ? (
         <MoviesSpinner />
       ) : (
@@ -77,6 +81,7 @@ const MoviesSimilar = ({ detailedMovieData }) => {
                     }
                     alt={item.title}
                     title={item.title}
+                    loading="lazy"
                   />
                 </Link>
               </SwiperSlide>

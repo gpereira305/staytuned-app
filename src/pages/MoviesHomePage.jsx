@@ -97,6 +97,7 @@ const MoviesHomepage = () => {
               </MoviesGrid>
 
               {popLoading && <MoviesSpinner />}
+
               {popMovies?.currentPage < popMovies?.totalPages &&
                 !popLoading && (
                   <MoviesLoadMoreButton

@@ -35,6 +35,10 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
     return lang.map((l) => l.english_name);
   };
 
+  // reduz para uma casa decimal a nota do filme
+  const fixedRating = (voteVal) =>  Number.parseFloat(voteVal).toFixed(1);
+
+
   return (
     <MovieInfoDetailsText>
       <div>
@@ -56,12 +60,14 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
         <MovieInfoDetailsH4>
           Lançamento: <span>{formatDate(release_date) || "???"}</span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           Orçamento:{" "}
           <span>
             {budget === 0 || null ? "???" : `U${convertMoney(budget)}`}
           </span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           Faturamento:{" "}
           <span>
@@ -71,25 +77,30 @@ const MoviesInfoDetail = ({ detailedMovieData }) => {
         <MovieInfoDetailsH4>
           Duração: <span>{`${calcTime(runtime)}` || "???"}</span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           Gênero: <span>{getEachItem(genres)?.join(", ") || "???"}</span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           {spoken_languages.length > 1 ? "Idiomas:" : "Idioma:"}{" "}
           <span>{getEachLang(spoken_languages)?.join(", ") || "???"}</span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           Nota IMDb:{" "}
-          <span style={{ color: vote_average < 6 ? "#bd8302" : "#099f0f" }}>
-            {vote_average || "???"}
+          <span style={{ color: fixedRating(vote_average) < 6 ? "#bd8302" : "#099f0f" }}>
+            {fixedRating(vote_average) || "???"}
           </span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           {production_countries.length > 1
             ? "Países de origem:"
             : "País de origem:"}{" "}
           <span>{getEachItem(production_countries)?.join(", ") || "???"}</span>
         </MovieInfoDetailsH4>
+
         <MovieInfoDetailsH4>
           {production_companies.length > 1 ? " Produtoras:" : " Produtora:"}{" "}
           <span>{getEachItem(production_companies)?.join(", ") || "???"}</span>

@@ -109,51 +109,36 @@ export const MovieHeroSlideContent = styled.div`
 
 export const MoviesGridItem = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
   margin-top: 30px;
 
   @media (max-width: 1200px) {
-    grid-gap: 20px;
-  }
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 470px) {
-    grid-template-columns: 1fr;
-  }
-  /* @media (max-width: 1324px) {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  @media (max-width: 790px) {
+  @media (max-width: 576px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 420px) {
-    grid-template-columns: repeat(1, 1fr);
-  } */
+  @media (max-width: 476px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const MoviesGridImage = styled.figure`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  max-width: 390px;
-  min-height: 560px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    max-width: 225px;
+    min-height: 325px;
 
-  @media (max-width: 1200px) {
-    min-height: 450px;
-  }
-
-  @media (max-width: 992px) {
-      min-height: 350px;
-  }
+   @media (max-width: 576px)  {
+    min-height: 225px;
+     max-width: none;
+   }
 
   @media (max-width: 470px) {
     max-width: none;

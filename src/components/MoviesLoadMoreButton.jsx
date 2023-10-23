@@ -17,11 +17,12 @@ const MoviesLoadMoreButton = ({ text, callback }) => {
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
-        minHeight: "10vh",
+        alignItems: "flex-end",
+        minHeight: "150px",
+        marginBottom: "60px"
       }}
     >
-      <LoadButton onClick={callback} title="Mostrar mais conteúdo">
+      <LoadButton onClick={callback}>
         {text}
       </LoadButton>
     </div>

@@ -14,6 +14,7 @@ const MoviesTrailer = ({ detailedMovieData }) => {
       <MovieHeaderTitle>
         {trailers.length > 1 ? "Trailers" : "Trailer"}
       </MovieHeaderTitle>
+
       <MovieTrailerGrid>
         {trailers.map((trailer, i) => (
           <Trailer trailer={trailer} key={i} />
