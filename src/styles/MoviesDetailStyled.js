@@ -28,17 +28,18 @@ export const MovieInfoWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  top: 20%;
+  top: 15%;
   right: 0;
   left: 0;
   background: rgb(0 0 0 / 65%);
 
+  @media (max-width: 1200px) {
+    max-width: none;
+     margin: auto 20px;
+    width: auto;
+  }
   @media (max-width: 990px) {
     flex-direction: column;
-  }
-  @media (max-width: 720px) {
-    width: calc(100% - 50px);
-    top: 2%;
   }
 `;
 
@@ -64,6 +65,11 @@ export const MovieInfoDetailsText = styled.article`
   padding: 15px;
   color: var(--light);
 
+  @media (max-width: 576px) {
+      max-height: 500px;
+      overflow-y: auto;
+  }
+
   > div {
     margin-bottom: 15px;
 
@@ -85,7 +91,6 @@ export const MovieInfoDetailsText = styled.article`
     }
     span {
       font-size: 0.85rem;
-      /* font-style: italic; */
     }
   }
 `;
@@ -101,10 +106,6 @@ export const MovieInfoDetailsH4 = styled.h4`
     color: var(--gray);
     text-transform: capitalize;
     margin-left: 10px;
-
-    @media (max-width: 720px) {
-      font-size: 0.7rem !important;
-    }
   }
 
   a {
@@ -113,11 +114,6 @@ export const MovieInfoDetailsH4 = styled.h4`
       margin-left: 10px;
       font-size: 1.1rem;
     }
-  }
-
-  @media (max-width: 720px) {
-    font-size: 0.85rem;
-    line-height: 1.35;
   }
 `;
 
@@ -140,10 +136,6 @@ export const MovieInfoDetailsOverview = styled.div`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
-
-    @media (max-width: 720px) {
-      font-size: 0.65rem;
-    }
   }
 `;
 

@@ -30,6 +30,8 @@ const MoviesHomepage = () => {
   const [{ popMovies, popLoading }, fetchPopMovies] = useHomeFetch(searchTerm);
   const [{ playingMovies, playingLoading, playingError }] = useHeroFetch();
 
+
+
   // função de pesquisa por termo digitado no search field
   const searchTermResults = (search) => {
     const endpoint = search ? searchBaseURL + search : popularMoviesURL;
@@ -39,12 +41,8 @@ const MoviesHomepage = () => {
 
   //  função para carregar mais filmes
   const handleLoadMoreMovies = () => {
-    const allPopMovies = `${popularMoviesURL}&page=${
-      popMovies.currentPage + 1
-    }`;
-    const searchMovies = `${searchBaseURL}${searchTerm}&page=${
-      popMovies.currentPage + 1
-    }`;
+    const allPopMovies = `${popularMoviesURL}&page=${ popMovies.currentPage + 1}`;
+    const searchMovies = `${searchBaseURL}${searchTerm}&page=${ popMovies.currentPage + 1}`;
 
     const endPoint = searchTerm ? searchMovies : allPopMovies;
     fetchPopMovies(endPoint);
@@ -53,6 +51,8 @@ const MoviesHomepage = () => {
   useEffect(() => {
     jumpToTop();
   }, []);
+
+  const fixedRating = (voteVal) =>  Number.parseFloat(voteVal).toFixed(1);
 
   return (
     <>
@@ -89,7 +89,7 @@ const MoviesHomepage = () => {
                       }
                       movieId={item.id}
                       movieName={item?.original_title}
-                      movieRating={item?.vote_average}
+                      movieRating={fixedRating(item?.vote_average)}
                       movieDate={item?.release_date}
                     />
                   ))}
@@ -107,8 +107,7 @@ const MoviesHomepage = () => {
                 )}
             </>
           ) : (
-            <div
-              style={{
+            <div style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",

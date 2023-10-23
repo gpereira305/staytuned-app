@@ -32,6 +32,7 @@ const MoviesPosters = ({ detailedMovieData }) => {
               }
               alt="Poster do filme"
               title="Poster"
+              loading="lazy"
             />
           ))}
         </MoviePosterGrid>

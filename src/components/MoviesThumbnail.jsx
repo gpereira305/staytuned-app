@@ -13,7 +13,7 @@ const MoviesThumbnail = ({
   movieDate,
 }) => {
   return (
-    <MoviesGridImage>
+    <MoviesGridImage className="fade-in">
       <span title="Média de valiações">{movieRating || "???"}</span>
 
       <Link to={`/${movieId}`}>
@@ -22,6 +22,7 @@ const MoviesThumbnail = ({
           src={movieImage}
           alt={movieName}
           title={movieName}
+          loading="lazy"
         />
         <MoviesGridInfo className="info">
           <p>{movieName}</p>
